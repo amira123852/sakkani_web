@@ -20,7 +20,7 @@ import { ParametreComponent } from './parametre/parametre.component';
     GestionrComponent,
     ReservationComponent,
     ParametreComponent,
-    ProductListComponent
+  
   ],
   imports: [
     BrowserModule,
