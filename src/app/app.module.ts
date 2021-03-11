@@ -9,7 +9,8 @@ import { GestioncComponent } from './gestionc/gestionc.component';
 import { GestionrComponent } from './gestionr/gestionr.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ParametreComponent } from './parametre/parametre.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/material/material.module';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,13 @@ import { ProductListComponent } from './product-list/product-list.component';
     GestioncComponent,
     GestionrComponent,
     ReservationComponent,
-    ParametreComponent,
-    ProductListComponent
+    ParametreComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
