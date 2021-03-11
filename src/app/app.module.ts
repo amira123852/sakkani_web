@@ -9,7 +9,7 @@ import { GestioncComponent } from './gestionc/gestionc.component';
 import { GestionrComponent } from './gestionr/gestionr.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ParametreComponent } from './parametre/parametre.component';
-import { ProductListComponent } from './product-list/product-list.component';
+
 
 @NgModule({
   declarations: [
