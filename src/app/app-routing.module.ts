@@ -14,6 +14,7 @@ const routes: Routes = [
     {path:'about', component:AboutusComponent},
     {path:'contact',component:ContactComponent}
   ]},
+  {path: '**', redirectTo:'home', pathMatch:"full"}
 ];
 
 @NgModule({
