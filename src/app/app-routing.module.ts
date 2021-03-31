@@ -6,12 +6,17 @@ import { MainLandpageComponent } from './guest/main-landpage/main-landpage.compo
 import { AboutusComponent } from './guest/aboutus/aboutus.component';
 import { ContactComponent } from './guest/contact/contact.component';
 import { HomePageComponent } from './guest/home-page/home-page.component';
+import { RegisterComponent } from './guest/register/register.component';
+import { LoginComponent } from './guest/login/login.component';
 
 const routes: Routes = [
   {path: 'home', component: MainLandpageComponent,
   children:[
     {path:'',component:HomePageComponent},
+    {path:'login', component:LoginComponent},
+    {path:'register', component:RegisterComponent},
     {path:'about', component:AboutusComponent},
+
     {path:'contact',component:ContactComponent}
   ]},
   {path: '**', redirectTo:'home', pathMatch:"full"}

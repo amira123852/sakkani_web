@@ -11,10 +11,12 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material/material.module';
 import { HomePageComponent } from './home-page/home-page.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
-  declarations: [MainNavbarComponent, MainFooterComponent, MainLandpageComponent, AboutusComponent, ContactComponent, HomePageComponent],
+  declarations: [MainNavbarComponent, MainFooterComponent, MainLandpageComponent, AboutusComponent, ContactComponent, HomePageComponent, LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     RouterModule,
