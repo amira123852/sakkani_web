@@ -2,23 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { GestioncComponent } from './gestionc/gestionc.component';
-import { GestionrComponent } from './gestionr/gestionr.component';
-import { ReservationComponent } from './reservation/reservation.component';
-import { ParametreComponent } from './parametre/parametre.component';
+import { MainLandpageComponent } from './guest/main-landpage/main-landpage.component';
+import { AboutusComponent } from './guest/aboutus/aboutus.component';
+import { ContactComponent } from './guest/contact/contact.component';
+import { HomePageComponent } from './guest/home-page/home-page.component';
+import { RegisterComponent } from './guest/register/register.component';
+import { LoginComponent } from './guest/login/login.component';
 
 const routes: Routes = [
-  {path: '', component: AppComponent},
-  {path: 'admin', component: LoginComponent},
-  {path: 'gestionc', component: GestioncComponent},
-  {path: 'gestionr', component: GestionrComponent},
-  {path: 'reservation', component: ReservationComponent},
-  {path: 'parametre', component: ParametreComponent},
-  {path: 'dashboard', component: DashboardComponent}
+  {path: 'home', component: MainLandpageComponent,
+  children:[
+    {path:'',component:HomePageComponent},
+    {path:'login', component:LoginComponent},
+    {path:'register', component:RegisterComponent},
+    {path:'about', component:AboutusComponent},
 
-
+    {path:'contact',component:ContactComponent}
+  ]},
+  {path: '**', redirectTo:'home', pathMatch:"full"}
 ];
 
 @NgModule({
