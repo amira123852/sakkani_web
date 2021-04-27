@@ -16,7 +16,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
-
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 //import {MatNativeDateModule} from '@angular/material/native';
@@ -35,7 +34,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatStepperModule} from '@angular/material/stepper';
 
-
 const materials=[
   MatAutocompleteModule,
   MatButtonModule,
@@ -45,8 +43,7 @@ const materials=[
   MatChipsModule,
   MatDatepickerModule,
   MatDialogModule,
-
-  MatDividerModule,
+  MatSliderModule,
   MatExpansionModule,
   MatToolbarModule,
   MatGridListModule,
@@ -54,16 +51,14 @@ const materials=[
   MatInputModule,
   MatListModule,
   MatMenuModule,
-
-
+ // MatNativeDateModule,
   MatPaginatorModule,
   MatProgressBarModule,
   MatProgressSpinnerModule,
   MatRadioModule,
-,
-
+ // MatRippleModule,
   MatSelectModule,
-  //MatSidenavModule,
+  MatSidenavModule,
   MatSliderModule,
   MatSlideToggleModule,
   MatSnackBarModule,
@@ -71,7 +66,6 @@ const materials=[
   MatStepperModule,
   MatTableModule,
   MatTabsModule,
-  MatToolbarModule,
   MatTooltipModule
 ];
 

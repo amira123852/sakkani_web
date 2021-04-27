@@ -16,13 +16,22 @@ import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
-  declarations: [MainNavbarComponent, MainFooterComponent, MainLandpageComponent, AboutusComponent, ContactComponent, HomePageComponent, LoginComponent, RegisterComponent],
+  declarations: [
+    MainNavbarComponent, 
+    MainFooterComponent, 
+    MainLandpageComponent,
+    AboutusComponent, 
+    ContactComponent, 
+    HomePageComponent, 
+    LoginComponent, 
+    RegisterComponent],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     MaterialModule,
     ReactiveFormsModule
-  ]
+  ],
+  exports:[]
 })
 export class GuestModule { }
