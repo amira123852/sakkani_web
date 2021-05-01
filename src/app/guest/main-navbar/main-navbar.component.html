@@ -1,6 +1,11 @@
 <!--Nav-->
 <nav id="header" class="top-0 z-30 w-full py-1">
+
   <div class="container flex flex-wrap items-center justify-between w-full px-6 py-3 mx-auto mt-0">
+
+
+
+
 
       <label for="menu-toggle" class="block cursor-pointer md:hidden">
           <svg class="text-gray-900 fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -13,8 +18,10 @@
 
 
       <div class="order-3 hidden w-full md:flex md:items-center md:w-auto md:order-2" id="menu">
-          <nav>
+
+        <nav>
               <ul class="items-center justify-between pt-4 text-base text-gray-700 md:flex md:pt-0">
+
                 <li>
                   <a class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
                   [routerLink]="['/home/login']" routerLinkActive="router-link-active">
@@ -44,13 +51,22 @@
           </nav>
       </div>
 
+
       <div class="order-1 md:order-1">
           <a class="flex items-center text-xl font-bold tracking-wide text-gray-800 no-underline hover:no-underline "
               href="#">
-              <img class=" p-2  h-100 w-50" src="assets/images/log2.png">
+              <img class=" p-2  h-100 w-50" src="assets/images/ekrili.png">
               <span class="text-lg text-opacity-75"></span>
           </a>
       </div>
+      <div class ="order-1 md:order-2">
+
+        <a class=" bg-gray-100 inline-block px-4 py-2 no-underline hover:text-black hover:underline hover:bg-blue-400"
+        [routerLink]="['/home/add']" routerLinkActive="router-link-active">
+    PUBLIER UNE ANNONCE
+        </a>
+
+  </div>
 
 
 

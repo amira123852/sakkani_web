@@ -8,26 +8,28 @@ import { ContactComponent } from './guest/contact/contact.component';
 import { HomePageComponent } from './guest/home-page/home-page.component';
 import { RegisterComponent } from './guest/register/register.component';
 import { LoginComponent } from './guest/login/login.component';
+import { AddComponent } from './provider/add/add.component';
 
 const routes: Routes = [
-  {path: 'home', component: MainLandpageComponent,
-  children:[
-    {path:'',component:HomePageComponent},
-    {path:'login', component:LoginComponent},
-    {path:'register', component:RegisterComponent},
-    {path:'about', component:AboutusComponent},
+  {
+    path: 'home',
+    component: MainLandpageComponent,
+    children: [
+      { path: '', component: HomePageComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'about', component: AboutusComponent },
+      { path: 'add', component: AddComponent },
 
-    {path:'contact',component:ContactComponent}
-  ]},
-  {path: '**', redirectTo:'home', pathMatch:"full"}
+      { path: 'contact', component: ContactComponent },
+    ],
+  },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [RouterModule]
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
