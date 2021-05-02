@@ -13,16 +13,28 @@ import { MaterialModule } from '../shared/material/material.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [MainNavbarComponent, MainFooterComponent, MainLandpageComponent, AboutusComponent, ContactComponent, HomePageComponent, LoginComponent, RegisterComponent],
+  declarations: [
+    MainNavbarComponent,
+    MainFooterComponent,
+    MainLandpageComponent,
+    AboutusComponent,
+    ContactComponent,
+    HomePageComponent,
+    LoginComponent,
+    RegisterComponent],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  exports:[]
 })
 export class GuestModule { }

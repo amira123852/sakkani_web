@@ -2,7 +2,7 @@
   "name": "sakkani",
   "version": "0.0.0",
   "scripts": {
-    "go": "ng serve & ngtw watch",
+    "start:dev": "ng serve & ngtw watch",
     "start": "node serve.js",
     "build": "ngtw build && ng build --prod",
     "test": "ng test",

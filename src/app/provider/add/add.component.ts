@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 
 @Component({
-  selector: 'app-add',
+  selector: 'app-employee-create',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
 
-  constructor() { }
+  @Input() maisonsDetails = { type_immobilier:"",description :"",photo_url :"", annonceur:""  }
 
-  ngOnInit(): void {
-  }
+  constructor(
+
+    public router: Router
+  ) { }
+
+  ngOnInit() { }
+
+
 
 }
