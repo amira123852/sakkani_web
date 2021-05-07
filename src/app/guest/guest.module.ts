@@ -14,6 +14,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ShowResidenceComponent } from './show-residence/show-residence.component';
+import { SearchResidenceComponent } from './search-residence/search-residence.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     ContactComponent,
     HomePageComponent,
     LoginComponent,
-    RegisterComponent],
+    RegisterComponent,
+    ShowResidenceComponent,
+    SearchResidenceComponent],
   imports: [
     CommonModule,
     RouterModule,

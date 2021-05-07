@@ -1,74 +1,89 @@
 <!--Nav-->
-<nav id="header" class="top-0 z-30 w-full py-1">
+<nav id="header" class="top-0 h-26 max-h-full z-30 w-full py-1 bg-gray-800">
+  <div
+    class="container flex flex-wrap items-center justify-between w-full px-1 py-1 mx-auto mt-0"
+  >
+    <label for="menu-toggle" class="block cursor-pointer md:hidden">
+      <svg
+        class="text-gray-900 fill-current"
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+      >
+        <title>menu</title>
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+      </svg>
+    </label>
+    <input class="hidden" type="checkbox" id="menu-toggle" />
 
-  <div class="container flex flex-wrap items-center justify-between w-full px-6 py-3 mx-auto mt-0">
-
-
-
-
-
-      <label for="menu-toggle" class="block cursor-pointer md:hidden">
-          <svg class="text-gray-900 fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-              viewBox="0 0 20 20">
-              <title>menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-          </svg>
-      </label>
-      <input class="hidden" type="checkbox" id="menu-toggle" />
-
-
-      <div class="order-3 hidden w-full md:flex md:items-center md:w-auto md:order-2" id="menu">
-
-        <nav>
-              <ul class="items-center justify-between pt-4 text-base text-gray-700 md:flex md:pt-0">
-
-                <li>
-                  <a class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
-                  [routerLink]="['/home/login']" routerLinkActive="router-link-active">
-                 Se connecter
-                  </a>
-              </li>
-              <li>
-                <a class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
-                    [routerLink]="['/home/register']" routerLinkActive="router-link-active">
+    <div
+      class="order-3 hidden w-full md:flex md:items-center md:w-auto md:order-2"
+      id="menu"
+    >
+      <nav>
+        <ul
+          class="items-center justify-between pt-4 text-base text-white md:flex md:pt-0"
+        >
+          <li>
+            <a
+            class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
+            [routerLink]="['/home/add']"
+              routerLinkActive="router-link-active"
+            >
+              PUBLIER UNE ANNONCE
+            </a>
+          </li>
+          <li>
+            <a
+              class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
+              [routerLink]="['/home/login']"
+              routerLinkActive="router-link-active"
+            >
+              Se connecter
+            </a>
+          </li>
+          <li>
+            <a
+              class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
+              [routerLink]="['/home/register']"
+              routerLinkActive="router-link-active"
+            >
               S'inscrire
-                </a>
-            </li>
+            </a>
+          </li>
 
-                  <li>
-                      <a class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
-                          [routerLink]="['/home/contact']" routerLinkActive="router-link-active">
-                          Contact
-                      </a>
-                  </li>
-                  <li>
-                      <a class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
-                          [routerLink]="['/home/about']" routerLinkActive="router-link-active">
-                          A propos
-                      </a>
-                  </li>
-              </ul>
-          </nav>
-      </div>
+          <li>
+            <a
+              class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
+              [routerLink]="['/home/contact']"
+              routerLinkActive="router-link-active"
+            >
+              Contact
+            </a>
+          </li>
+          <li>
+            <a
+              class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
+              [routerLink]="['/home/about']"
+              routerLinkActive="router-link-active"
+            >
+              A propos
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-
-      <div class="order-1 md:order-1">
-          <a class="flex items-center text-xl font-bold tracking-wide text-gray-800 no-underline hover:no-underline "
-              href="#">
-              <img class=" p-2  h-100 w-50" src="assets/images/ekrili.png">
-              <span class="text-lg text-opacity-75"></span>
-          </a>
-      </div>
-      <div class ="order-1 md:order-2">
-
-        <a class=" bg-gray-100 inline-block px-4 py-2 no-underline hover:text-black hover:underline hover:bg-blue-400"
-        [routerLink]="['/home/add']" routerLinkActive="router-link-active">
-    PUBLIER UNE ANNONCE
-        </a>
-
-  </div>
-
-
+    <div class="order-1 md:order-1">
+      <a
+        class="flex items-center text-xl font-bold tracking-wide text-gray-800 no-underline hover:no-underline"
+        href="#"
+      >
+        <img class="p-2 h-100 w-50" src="assets/images/ekril.png" />
+        <span class="text-lg text-opacity-75"></span>
+      </a>
+    </div>
 
   </div>
 </nav>

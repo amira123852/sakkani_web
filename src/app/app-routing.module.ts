@@ -14,6 +14,8 @@ import { AddComponent } from './provider/add/add.component';
 
 import { NavbaradminComponent } from './admin/navbaradmin/navbaradmin.component';
 import { HomepageadminComponent } from './admin/homepageadmin/homepageadmin.component';
+import { ShowResidenceComponent } from './guest/show-residence/show-residence.component';
+import { SearchResidenceComponent } from './guest/search-residence/search-residence.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,8 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
       { path: 'about', component: AboutusComponent },
       { path: 'add', component: AddComponent },
+      { path: 'show_residence', component: ShowResidenceComponent },
+      { path: 'search', component: SearchResidenceComponent },
 
       { path: 'contact', component: ContactComponent },
     ],

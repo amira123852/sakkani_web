@@ -1,15 +1,16 @@
 export interface User{
-  _id?: string;
+  id: string;
   nom: string;
   email: string;
   password: string;
-  telephone?: string;
-  ville?:string;
-  datenaissance?: string;
+  telephone: string;
+  ville:string;
+  datenaissance: Date;
   role: string;
   isGranted: boolean;
-  token?: string;
+  token: string;
 }
+
 
 
 
