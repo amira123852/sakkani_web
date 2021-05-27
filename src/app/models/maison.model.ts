@@ -1,10 +1,8 @@
-export interface Maison {
-  id: string;
+export class Maison {
+  _id: string;
   type_immobilier: string;
   description: string;
-  photo_url: string;
+  Photo: string;
   prix: string;
 
 }
-
-

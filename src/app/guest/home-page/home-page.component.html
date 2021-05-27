@@ -1,3 +1,36 @@
+<header>
+
+      <div class="container mx-auto px-2 py-1 ">
+          <div class="md:flex md:items-center md:justify-between">
+              <div class="flex justify-between items-center">
+
+
+                  <!-- Mobile menu button -->
+                  <div class="flex md:hidden">
+                      <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+                          <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                              <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+                          </svg>
+                      </button>
+                  </div>
+              </div>
+
+              <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+
+          </div>
+      </div>
+
+
+  <div class="w-full bg-cover bg-center" style="height:32rem; background-image: url('assets/images/etud.jpg');">
+      <div class="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
+          <div class="text-center">
+              <h1 class="text-white text-2xl font-semibold uppercase md:text-3xl">Trouvez un logement sur <span class="underline text-blue-400">Ekrili</span></h1>
+              <button class="mt-4 px-4 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500 "[routerLink]="['/home/show-residences']" >Détails...</button>
+          </div>
+      </div>
+  </div>
+</header>
+
 <div class="container flex px-2 mx-auto">
   <!-- Card 1 -->
   <div class="w-full max-w-sm overflow-hidden rounded border bg-white shadow px-2 py-2 mx-3 my-3">

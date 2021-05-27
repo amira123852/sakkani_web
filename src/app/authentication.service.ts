@@ -22,13 +22,21 @@ export class AuthenticationService {
     }
 
     login(email: string, password: string):Observable<any> {
-        return this.http.post<any>(`${environment.baseURL}users/authenticate`,
-        { email, password }).pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
-                return user;
-            }));
+      let _user;
+      return this.http.post<any>(`${environment.baseURL}/users/authenticate`, { email, password })
+          .pipe(map(response => {
+            _user = {...response.payload.user};
+            _user.token = response.payload.token;
+
+              // login successful if there's a jwt token in the response
+            if (_user && _user.token && response.status==="success") {
+                  // store user details and jwt token in local storage to keep user logged in between page refreshes
+                  localStorage.setItem('currentUser', JSON.stringify(_user));
+                  this.currentUserSubject.next(_user);
+              }
+
+            return _user;
+          }));
     }
 
     logout() {

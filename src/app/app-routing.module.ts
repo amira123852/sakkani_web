@@ -16,6 +16,8 @@ import { NavbaradminComponent } from './admin/navbaradmin/navbaradmin.component'
 import { HomepageadminComponent } from './admin/homepageadmin/homepageadmin.component';
 import { ShowResidenceComponent } from './guest/show-residence/show-residence.component';
 import { SearchResidenceComponent } from './guest/search-residence/search-residence.component';
+import { AuthGuard } from './_helpers/auth.guard';
+import { AdminGuard } from './_helpers/admin.guard';
 
 const routes: Routes = [
   {
@@ -26,8 +28,16 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'about', component: AboutusComponent },
-      { path: 'add', component: AddComponent },
-      { path: 'show_residence', component: ShowResidenceComponent },
+      {
+        path: 'add',
+        component: AddComponent,
+        data: { title: 'Add Residence' },
+        canActivate:[AuthGuard]
+      },
+      {path: 'show-residences',   component: ShowResidenceComponent,
+        data: { title: 'Show Residences' }
+      },
+
       { path: 'search', component: SearchResidenceComponent },
 
       { path: 'contact', component: ContactComponent },
@@ -40,6 +50,7 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
+    canActivate:[AuthGuard,AdminGuard]
   },
 
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
