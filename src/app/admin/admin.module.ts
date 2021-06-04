@@ -5,16 +5,20 @@ import { NavbaradminComponent } from './navbaradmin/navbaradmin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { RouterModule } from '@angular/router';
 import { SidebaradminComponent } from './sidebaradmin/sidebaradmin.component';
+import { AdminUserListComponent } from './admin-user-list/admin-user-list.component';
+import { MaterialModule } from '../shared/material/material.module';
+import { AdminResidenceListComponent } from './admin-residence-list/admin-residence-list.component';
 
 
 
 @NgModule({
-  declarations: [HomepageadminComponent, NavbaradminComponent, SidebaradminComponent],
+  declarations: [HomepageadminComponent, NavbaradminComponent, SidebaradminComponent, AdminUserListComponent, AdminResidenceListComponent],
   imports: [
     CommonModule ,
     AdminRoutingModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
-  exports: [AdminRoutingModule] 
+  exports: [AdminRoutingModule]
 })
 export class AdminModule { }

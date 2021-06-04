@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+    <h2 class="h2">Users List</h2>
+
+    <a
+    class=" bg-gray-300 inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-500"
+    [routerLink]="['/home/register']"
+    routerLinkActive="router-link-active"
+  >
+  Ajouter un utilisateur
+  </a>
+
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Email</th>
+          <th scope="col">Telephone</th>
+          <th scope="col">Ville</th>
+          <th scope="col">Date de naissance</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <td>{{user.nom}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.telephone}}</td>
+          <td>{{user.ville}}</td>
+          <td>{{user.datenaissance | date: "dd-MM-yyyy"}}</td>
+
+          <td class="text-center">
+            <button class="btn btn-sm btn-primary" (click)="updateUser(user._id)">Modifier</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteUs(user._id)" >Supprimer</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -16,6 +16,8 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowResidenceComponent } from './show-residence/show-residence.component';
 import { SearchResidenceComponent } from './search-residence/search-residence.component';
+import { ConsumerModule } from '../consumer/consumer.module';
+import { EditResidenceComponent } from './edit-residence/edit-residence.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { SearchResidenceComponent } from './search-residence/search-residence.co
     LoginComponent,
     RegisterComponent,
     ShowResidenceComponent,
-    SearchResidenceComponent],
+    SearchResidenceComponent,
+    EditResidenceComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -37,7 +40,8 @@ import { SearchResidenceComponent } from './search-residence/search-residence.co
     ReactiveFormsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ConsumerModule
   ],
   exports:[]
 })

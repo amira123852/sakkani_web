@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-
 import { MainLandpageComponent } from './guest/main-landpage/main-landpage.component';
 import { AboutusComponent } from './guest/aboutus/aboutus.component';
 import { ContactComponent } from './guest/contact/contact.component';
@@ -18,6 +17,7 @@ import { ShowResidenceComponent } from './guest/show-residence/show-residence.co
 import { SearchResidenceComponent } from './guest/search-residence/search-residence.component';
 import { AuthGuard } from './_helpers/auth.guard';
 import { AdminGuard } from './_helpers/admin.guard';
+import { DescriptionResidenceComponent } from './guest/description-residence/description-residence.component';
 
 const routes: Routes = [
   {
@@ -32,10 +32,17 @@ const routes: Routes = [
         path: 'add',
         component: AddComponent,
         data: { title: 'Add Residence' },
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard],
       },
-      {path: 'show-residences',   component: ShowResidenceComponent,
-        data: { title: 'Show Residences' }
+      {
+        path: 'show-residences',
+        component: ShowResidenceComponent,
+        data: { title: 'Show Residences' },
+      },
+      {
+        path: 'description/:id',
+        component: DescriptionResidenceComponent,
+        data: { title: 'description' },
       },
 
       { path: 'search', component: SearchResidenceComponent },
@@ -50,7 +57,7 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
-    canActivate:[AuthGuard,AdminGuard]
+    // canActivate:[AuthGuard,AdminGuard]
   },
 
   { path: '**', redirectTo: 'home', pathMatch: 'full' },

@@ -32,5 +32,8 @@ export class ShowResidenceComponent implements OnInit {
       })
     }
   }
+  click(id){
+    alert(id)
+  }
 }
 

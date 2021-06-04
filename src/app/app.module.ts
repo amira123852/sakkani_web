@@ -20,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
+import { ConsumerModule } from './consumer/consumer.module';
 
 
 @NgModule({
@@ -36,6 +37,8 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
     GuestModule,
     ProviderModule,
     AdminModule,
+    ConsumerModule ,
+
     HttpClientModule,
     MatInputModule,
     MatProgressSpinnerModule,
@@ -43,7 +46,6 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-
     MaterialFileInputModule
 
   ],

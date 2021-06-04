@@ -1,14 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ConsumerRoutingModule } from './consumer-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../shared/material/material.module';
+import { DescriptionResidenceComponent } from '../guest/description-residence/description-residence.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [DescriptionResidenceComponent],
   imports: [
     CommonModule,
-    ConsumerRoutingModule
-  ]
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  exports:[]
 })
 export class ConsumerModule { }
+

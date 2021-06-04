@@ -39,6 +39,8 @@ updateMaison(id,maison:Maison):Observable<any>{
 GetHouses() {
   return this.http.get(`${environment.baseURL}/maisons`) as Observable<any>;
 }
-
+getMaisonById(id){
+  return this.http.get(`${environment.baseURL}/maisons/${id}`) as Observable<any>;
+}
 }
 

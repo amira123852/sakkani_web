@@ -1,0 +1,44 @@
+
+ <div class=" px-72 grid grid-cols-3 2 lg:grid-cols-3 xl:grid-cols-4 ">
+  <app-card  class=
+  "  transition-transform transform hover:scale-105 cursor-pointer duration-300 ease-in-out"
+   *ngFor="let data of maisons"><div class="rounded-xl shadow-xl">
+    <img class="rounded-t-xl  w-full h-36 object-cover" [src]="data.Photo">
+    <div class="flex flex-col p-7">
+        <div class="flex flex-row">
+            <div class=" text-xs uppercase bg-yellow-100 p-1 px-2 text-yellow-700 rounded-2xl">{{data.prix}}</div>
+        </div>
+         <h2 class="text-xl font-bold truncate mt-1">{{data.type_immobilier}}</h2>
+       <!-- <p class="text-base text-gray-600 mt-1">{{data.description}}</p> -->
+        <div class="flex flex-row mt-5 items-center justify-start">
+
+    </div>
+    <div class="p-3  mt-2 text-center space-x-4 md:block">
+      <button class="mb-2 md:mb-0 bg-yellow-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
+      Modifier
+      </button>
+      <button  (click)="deleteMa(data._id)" class="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600">Bloquer</button>
+  </div>
+
+  </div>
+  </div>
+  </app-card>
+  </div>
+  <!-- This is an example component -->
+
+      <!-- <div *ngFor="let data of maisons" class=" blogs__wraper bg-green-300  py-20 px-20">
+
+          <div class="flex justify-between items-center">
+
+       <div class="blogs bg-white mr-5">
+           <img  [src]="data.Photo" class="">
+           <div class="p-5">
+          <h1 class="text-2xl font-bold text-green-800 py-2"> {{data.type_immobilier}}</h1>
+           <p class="bg-white text-sm text-black">{{data.prix}}</p>
+           <p class="bg-white text-sm text-black">{{data.annonceur.ville}}</p>
+
+           <a href="" class="py-2 px-3 mt-4 px-6 text-white bg-green-500 inline-block rounded" [routerLink]="['/home/description', data._id]">Détails</a>
+           </div>
+       </div>
+
+   -->
