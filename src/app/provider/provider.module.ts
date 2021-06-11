@@ -6,11 +6,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../shared/material/material.module';
 import { AddComponent } from './add/add.component';
+import { ProviderProfilComponent } from './provider-profil/provider-profil.component';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
   declarations: [
     AddComponent,
+    ProviderProfilComponent,
+    EditComponent,
   ],
   imports: [
     CommonModule,

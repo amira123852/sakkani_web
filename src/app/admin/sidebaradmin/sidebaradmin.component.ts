@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebaradmin.component.css']
 })
 export class SidebaradminComponent implements OnInit {
-
+  states: string[] = [
+    'gestion des annonces', 'gestion des utilisateurs',
+  ];
   constructor() { }
 
   ngOnInit(): void {

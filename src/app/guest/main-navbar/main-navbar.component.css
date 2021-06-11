@@ -14,3 +14,10 @@
 .hover\:grow:hover {
   transform: scale(1.02);
 }
+.white-icon {
+  color: white;
+}
+/* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
+.white-icon svg {
+  fill: white;
+}

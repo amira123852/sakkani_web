@@ -39,19 +39,28 @@
                         <!-- <span class="text-2xl leading-none align-baseline">DT</span> -->
                     </div>
                     <div class="inline-block align-bottom">
-                        <button class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"> Réserver</button>
+                        <button     (click)="postRes()"
+                         class="bg-yellow-300 opacity-75 hover:opacity-100 text-yellow-900 hover:text-gray-900 rounded-full px-10 py-2 font-semibold"> Réserver</button>
                     </div>
+
                 </div>
+                <div class="inline-block align-bottom">
+
+                  </div>
+
             </div>
+
         </div>
+        <a
+        class=" absolute bottom-0 right-0 h-16 w-26  inline-block px-6 py-3 no-underline rounded-md text-green-900   "
+        [routerLink]="['/home/show-residences']"
+        routerLinkActive="router-link-active"
+      >
+      <mat-icon class="green-icon">subdirectory_arrow_left</mat-icon> retour
+
+      </a>
     </div>
 </div>
 
 <!-- BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
-<div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
-    <div>
-        <a title="Buy me a beer" href="https://www.buymeacoffee.com/scottwindon" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
-            <img class="object-cover object-center w-full h-full rounded-full" src="https://i.pinimg.com/originals/60/fd/e8/60fde811b6be57094e0abc69d9c2622a.jpg"/>
-        </a>
-    </div>
-</div>
+

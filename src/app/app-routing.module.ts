@@ -18,6 +18,9 @@ import { SearchResidenceComponent } from './guest/search-residence/search-reside
 import { AuthGuard } from './_helpers/auth.guard';
 import { AdminGuard } from './_helpers/admin.guard';
 import { DescriptionResidenceComponent } from './guest/description-residence/description-residence.component';
+import { AideComponent } from './guest/aide/aide.component';
+import { ProviderProfilComponent } from './provider/provider-profil/provider-profil.component';
+import { EditComponent } from './provider/edit/edit.component';
 
 const routes: Routes = [
   {
@@ -25,13 +28,25 @@ const routes: Routes = [
     component: MainLandpageComponent,
     children: [
       { path: '', component: HomePageComponent },
-      { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'about', component: AboutusComponent },
+      { path: 'login', component: LoginComponent },
       {
         path: 'add',
         component: AddComponent,
         data: { title: 'Add Residence' },
+        canActivate: [AuthGuard],
+      },
+      {
+      path: 'profil',
+      component: ProviderProfilComponent,
+      data: { title: 'profil' },
+      canActivate: [AuthGuard],
+      },
+      {
+        path: 'edit/:id',
+        component: EditComponent,
+        data: { title: 'edit' },
         canActivate: [AuthGuard],
       },
       {
@@ -48,6 +63,8 @@ const routes: Routes = [
       { path: 'search', component: SearchResidenceComponent },
 
       { path: 'contact', component: ContactComponent },
+      { path: 'aide', component: AideComponent },
+
     ],
   },
 

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Maison } from './models/maison.model';
+import { Reservation } from './models/reservation.model';
 import { User } from './models/user.model';
 const optionRequete = {
   headers: new HttpHeaders({
@@ -31,9 +32,10 @@ deleteMaison(id){
 }
 
 
-updateMaison(id,maison:Maison):Observable<any>{
-   let _maison={...maison};
-  return this.http.put(`${environment.baseURL}/maisons/update/${id}`,_maison) as Observable<any>;
+updateMaison(id,data):Observable<any>{
+  alert(JSON.stringify(data))
+  //  let _maison={...data};
+  return this.http.put(`${environment.baseURL}/maisons/update/${id}`,JSON.stringify(data)) as Observable<any>;
 }
 
 GetHouses() {
@@ -41,6 +43,10 @@ GetHouses() {
 }
 getMaisonById(id){
   return this.http.get(`${environment.baseURL}/maisons/${id}`) as Observable<any>;
+}
+public postReservation(reservation: Reservation):Observable<any>{
+
+  return this.http.post(`${environment.baseURL}/reservations/reserve`,reservation) as Observable<any>;
 }
 }
 

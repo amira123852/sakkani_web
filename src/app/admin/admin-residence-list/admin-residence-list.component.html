@@ -1,7 +1,57 @@
+<div class="container">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 
- <div class=" px-72 grid grid-cols-3 2 lg:grid-cols-3 xl:grid-cols-4 ">
-  <app-card  class=
-  "  transition-transform transform hover:scale-105 cursor-pointer duration-300 ease-in-out"
+    <h2 class="h2">Users List</h2>
+
+    <a
+    class=" bg-gray-300 inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-500"
+    [routerLink]="['/home/add']"
+    routerLinkActive="router-link-active"
+  >
+  Ajouter une annonce
+  </a>
+
+  </div>
+
+  <div class="table-responsive px-56">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Image</th>
+          <th scope="col">Type immobilier</th>
+          <!-- <th scope="col"></th>
+          <th scope="col">Ville</th>
+          <th scope="col">Date de naissance</th> -->
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let maison of maisons; let i = index">
+          <td>
+            <img class="rounded-t-xl  w-8 h-8 object-cover" [src]="maison.Photo">
+          </td>
+          <td>{{maison.type_immobilier}}</td>
+          <!-- <td>{{maison.descr}}</td>
+          <td>{{user.ville}}</td>
+          <td>{{user.datenaissance | date: "dd-MM-yyyy"}}</td> -->
+
+          <td class="text-center">
+
+          <button>             <mat-icon class="green-icon" >create</mat-icon>
+
+            </button>
+            <button> <mat-icon class="red-icon" (click)="deleteMa(maison._id)">delete</mat-icon>
+          </button>
+            <!-- <button class="btn btn-sm btn-primary" (click)="updateUser(user._id)">Modifier</button> -->
+          <!-- <button class="btn btn-sm btn-danger" (click)="deleteUs(user._id)" >Supprimer</button> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+ <!-- <div class=" px-72 grid grid-cols-3 2 lg:grid-cols-3 xl:grid-cols-4 ">
+  <app-card  class= "px-3  transition-transform transform hover:scale-105 cursor-pointer duration-300 ease-in-out"
    *ngFor="let data of maisons"><div class="rounded-xl shadow-xl">
     <img class="rounded-t-xl  w-full h-36 object-cover" [src]="data.Photo">
     <div class="flex flex-col p-7">
@@ -9,10 +59,10 @@
             <div class=" text-xs uppercase bg-yellow-100 p-1 px-2 text-yellow-700 rounded-2xl">{{data.prix}}</div>
         </div>
          <h2 class="text-xl font-bold truncate mt-1">{{data.type_immobilier}}</h2>
-       <!-- <p class="text-base text-gray-600 mt-1">{{data.description}}</p> -->
-        <div class="flex flex-row mt-5 items-center justify-start">
+       <p class="text-base text-gray-600 mt-1">{{data.description}}</p>
+       <div class="flex flex-row mt-5 items-center justify-start"> -->
 
-    </div>
+    <!-- </div>
     <div class="p-3  mt-2 text-center space-x-4 md:block">
       <button class="mb-2 md:mb-0 bg-yellow-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
       Modifier
@@ -23,7 +73,7 @@
   </div>
   </div>
   </app-card>
-  </div>
+  </div> --> -->
   <!-- This is an example component -->
 
       <!-- <div *ngFor="let data of maisons" class=" blogs__wraper bg-green-300  py-20 px-20">

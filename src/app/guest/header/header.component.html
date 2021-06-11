@@ -1,0 +1,4 @@
+<ul class="nav navbar-nav">
+  <li><a [routerLink]='["/search"]'>Search <span class="slider"></span></a></li>
+  <li *ngIf="isLoggedIn$ | async"><a (click)="logout()">Logout</a></li>
+</ul>

@@ -26,6 +26,9 @@ updateUser(id,user:User):Observable<any>{
 GetUsers() {
   return this.http.get(`${environment.baseURL}/users`) as Observable<any>;
 }
+GetContacts() {
+  return this.http.get(`${environment.baseURL}/users/listcontact`) as Observable<any>;
+}
 
 }
 

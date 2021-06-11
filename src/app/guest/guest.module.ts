@@ -18,6 +18,8 @@ import { ShowResidenceComponent } from './show-residence/show-residence.componen
 import { SearchResidenceComponent } from './search-residence/search-residence.component';
 import { ConsumerModule } from '../consumer/consumer.module';
 import { EditResidenceComponent } from './edit-residence/edit-residence.component';
+import { HeaderComponent } from './header/header.component';
+import { AideComponent } from './aide/aide.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { EditResidenceComponent } from './edit-residence/edit-residence.componen
     RegisterComponent,
     ShowResidenceComponent,
     SearchResidenceComponent,
-    EditResidenceComponent],
+    EditResidenceComponent,
+    HeaderComponent,
+    AideComponent],
   imports: [
     CommonModule,
     RouterModule,

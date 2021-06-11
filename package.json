@@ -1,5 +1,5 @@
 {
-  "name": "sakkani",
+  "name": "ekrili",
   "version": "0.0.0",
   "scripts": {
     "start:dev": "ng serve & ngtw watch",
@@ -25,10 +25,12 @@
     "@kolkov/angular-editor": "^1.1.4",
     "compression": "^1.7.4",
     "express": "^4.17.1",
+    "moment": "^2.29.1",
     "nativescript-angular-snapshot": "^1.5.2-5.5.372.32",
     "ng-tailwindcss": "^2.3.2",
     "ngx-material-file-input": "^2.1.1",
     "rxjs": "~6.6.0",
+    "socket.io": "^4.1.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

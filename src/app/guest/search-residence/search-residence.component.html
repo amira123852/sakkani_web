@@ -1,47 +1,18 @@
-<div
-  class="container h-screen mx-auto flex justify-center items-center max-h-64 p-2 md:p-0"
->
-  <div
-    class="border border-gray-300 p-6 grid grid-cols-1 gap-6 bg-white shadow-lg rounded-lg"
-  >
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div class="grid grid-cols-1 gap-1 border border-gray-200 p-2 rounded">
-
-        <div class="flex border rounded bg-gray-300 items-center p-2">
 
 
-          <input
-            type="text"
-            placeholder="Enter text here..."
-            class="bg-gray-300 max-w-full focus:outline-none text-gray-700"
-          />
-        </div>
-      </div>
-      <div class="grid grid-cols-2 gap-2 border border-gray-200 p-2 rounded">
-        <div class="flex border rounded bg-gray-300 items-center p-2">
-          <select class="border p-2 rounded">
-            <option>ville</option>
-            <option>Monastir</option>
-            <option>Mahdia</option>
-          </select>
-        </div>
-        <div class="flex border rounded bg-gray-300 items-center p-2">
-          <select class="border p-2 rounded">
-            <option>Type Immobilier</option>
-            <option>villa/maisons</option>
-            <option>Foyer Privé</option>
-          </select>
-        </div>
-      </div>
+            <!-- image search box -->
+            <div class=" px-4 box pt-6">
+                <div class="box-wrapper">
+
+                    <div class=" bg-white rounded flex items-center w-full p-3 shadow-md border border-gray-200">
+                      <button  class="outline-none focus:outline-none"><svg class=" w-5 text-gray-600 h-5 cursor-pointer" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                      <input type="search" name="" id="" placeholder="type immobilier,ville,..." x-model="q" class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent ">
+
+                    </div>
+
+                </div>
+            </div>
 
 
 
-        <div class="flex justify-center grid grid-cols-1 gap-1 border border-gray-200 p-2 rounded">
-          <button class="p-2  rounded-md bg-green-500 text-white">Recherche</button></div>
-
-      </div>
-
-
-  </div>
-</div>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>

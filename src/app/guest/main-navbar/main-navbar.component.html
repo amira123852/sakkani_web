@@ -18,14 +18,28 @@
     <input class="hidden" type="checkbox" id="menu-toggle" />
 
     <div
-      class="order-3 hidden w-full md:flex md:items-center md:w-auto md:order-2"
+      class=" order-3 hidden w-full md:flex md:items-center md:w-auto md:order-2"
       id="menu"
     >
       <nav>
         <ul
           class="items-center justify-between pt-4 text-base text-black md:flex md:pt-0"
         >
-          <li>
+        <li>
+
+          <a
+
+            class="inline-block px-4 py-2 no-underline bg-blue-400 rounded-md text-white hover:underline hover:bg-gray-500"
+            [routerLink]="['/home/login']"
+            routerLinkActive="router-link-active"
+          >
+          <!-- <i class="large material-icons icon-blue">note_add</i> -->
+          <mat-icon class="white-icon">account_circle</mat-icon>
+          Etudiant
+          </a>
+
+        </li>
+          <!-- <li>
             <a
             class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
             [routerLink]="['/home/add']"
@@ -33,8 +47,8 @@
             >
               PUBLIER UNE ANNONCE
             </a>
-          </li>
-          <li>
+          </li> -->
+          <!-- <li>
             <a
               class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
               [routerLink]="['/home/login']"
@@ -42,18 +56,10 @@
             >
               Se connecter
             </a>
-          </li>
-          <li>
-            <a
-              class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
-              [routerLink]="['/home/register']"
-              routerLinkActive="router-link-active"
-            >
-              S'inscrire
-            </a>
-          </li>
+          </li> -->
 
-          <li>
+
+          <!-- <li>
             <a
               class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
               [routerLink]="['/home/contact']"
@@ -61,16 +67,18 @@
             >
               Contact
             </a>
-          </li>
+          </li> -->
           <li>
             <a
-              class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
-              [routerLink]="['/home/about']"
+              class="inline-block px-4 py-2 no-underline rounded-md text-white bg-gray-800 hover:underline hover:bg-gray-500"
+              [routerLink]="['/home/add']"
               routerLinkActive="router-link-active"
             >
-              A propos
+            <mat-icon class="white-icon">home</mat-icon>
+            Publier une annonce
             </a>
           </li>
+
         </ul>
       </nav>
     </div>
@@ -80,7 +88,10 @@
         class="flex items-center text-xl font-bold tracking-wide text-gray-800 no-underline hover:no-underline"
         href="#"
       >
-        <img class="p-2 h-100 w-50" src="assets/images/ekrili.png" />
+        <img class="p-2
+        h-20 w-20 bg-white flex items-center justify-center text-gray-700 font-semibold shadow-md
+        " src="assets/images/ekrili.png" />
+
         <span class="text-lg text-opacity-75"></span>
       </a>
     </div>

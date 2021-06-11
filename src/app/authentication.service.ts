@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
-
+    private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
@@ -38,6 +38,10 @@ export class AuthenticationService {
             return _user;
           }));
     }
+
+    get isUserLoggedIn(){
+      return this.loggedIn.asObservable();
+  }
 
     logout() {
         // remove user from local storage to log user out

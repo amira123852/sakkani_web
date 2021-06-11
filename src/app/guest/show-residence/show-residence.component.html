@@ -1,14 +1,20 @@
+<app-search-residence > </app-search-residence>
 
- <div class="grid grid-cols-3 2 lg:grid-cols-3 xl:grid-cols-4">
+
+
+ <div class=" py-4 flex-auto grid grid-cols-3 2 xs:flex xs:flex-column md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
 <app-card class=
-"transition-transform transform hover:scale-105 cursor-pointer duration-300 ease-in-out"
- *ngFor="let data of maisons"><div class="rounded-xl shadow-xl">
+"transition-transform transform hover:scale-105 cursor-pointer duration-300 ease-in-out px-3"
+ *ngFor="let data of maisons">
+ <div class="rounded-xl shadow-xl">
   <img class="rounded-t-xl  w-full h-36 object-cover" [src]="data.Photo">
   <div class="flex flex-col p-7">
       <div class="flex flex-row">
           <div class=" text-xs uppercase bg-yellow-100 p-1 px-2 text-yellow-700 rounded-2xl">{{data.prix}}</div>
       </div>
        <h2 class="text-xl font-bold truncate mt-1">{{data.type_immobilier}}</h2>
+       <h2 class="text-xl font-bold truncate mt-1">{{data.annonceur.ville}}</h2>
+
      <!-- <p class="text-base text-gray-600 mt-1">{{data.description}}</p> -->
       <div class="flex flex-row mt-5 items-center justify-start">
 

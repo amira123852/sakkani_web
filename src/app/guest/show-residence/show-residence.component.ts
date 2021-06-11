@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 import { UserService } from 'src/app/user.service';
 
@@ -10,9 +11,9 @@ import { UserService } from 'src/app/user.service';
 })
 export class ShowResidenceComponent implements OnInit {
   maisons:any = [];
-  router: Router;
 
-  constructor(private userService: UserService) { }
+  constructor(     private router: Router,
+    private autheService: AuthenticationService, private userService: UserService) { }
 
 
   ngOnInit():void
@@ -23,6 +24,15 @@ export class ShowResidenceComponent implements OnInit {
         console.log(this.maisons);
       });
     }
+    public logout() {
+      try {
+       this.autheService.logout();
+          this.router.navigate(['/home']);
+       } catch (error) {
+        console.log('Error', error);
+       }
+       }
+
 
   deleteMa(id:any, i:any) {
     console.log(id);

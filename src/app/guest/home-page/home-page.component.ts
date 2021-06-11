@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,12 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  maisons:any = [];
+  router: Router;
 
-  hidden: false;
-  constructor(private router: Router) { }
+  constructor(private userService: UserService) { }
 
-  ngOnInit(): void {
-  }
+
+  ngOnInit():void
+{
+    this. userService.GetHouses().subscribe(
+      data =>{
+        this.maisons = data.payload;
+        console.log(this.maisons);
+      });
+    }
+
+
 
 
 }
+
