@@ -20,6 +20,8 @@ export class AddComponent implements OnInit {
   maison: Maison;
   addForm = new FormGroup({
     type_immobilier: new FormControl('', Validators.required),
+  nom: new FormControl('', Validators.required),
+
     description: new FormControl('', Validators.required),
     Photo: new FormControl(null),
     prix: new FormControl('', Validators.required),
@@ -49,6 +51,7 @@ export class AddComponent implements OnInit {
       'type_immobilier',
       this.addForm.get('type_immobilier').value
     );
+    formData.append('nom', this.addForm.get('nom').value);
     formData.append('description', this.addForm.get('description').value);
     formData.append('Photo', this.addForm.get('Photo').value);
     formData.append('prix', this.addForm.get('prix').value);

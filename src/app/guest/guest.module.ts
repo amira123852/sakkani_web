@@ -22,8 +22,10 @@ import { HeaderComponent } from './header/header.component';
 import { AideComponent } from './aide/aide.component';
 
 
+
 @NgModule({
   declarations: [
+
     MainNavbarComponent,
     MainFooterComponent,
     MainLandpageComponent,
@@ -45,8 +47,11 @@ import { AideComponent } from './aide/aide.component';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ConsumerModule
+
+    ConsumerModule,
+
   ],
+
   exports:[]
 })
 export class GuestModule { }

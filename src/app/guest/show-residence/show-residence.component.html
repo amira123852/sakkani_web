@@ -1,5 +1,18 @@
-<app-search-residence > </app-search-residence>
 
+
+            <!-- image search box -->
+            <div class=" px-4 box pt-6">
+              <div class="box-wrapper">
+
+                  <div class=" bg-white rounded flex items-center w-full p-3 shadow-md border border-gray-200">
+                    <button  class="outline-none focus:outline-none"><svg class=" w-5 text-gray-600 h-5 cursor-pointer" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <input name="type_immobilier" [(ngModel)]="type_immobilier"  (ngModelChange)="Search() " type="search" name="" id="" placeholder="type immobilier,ville,.."
+                     type="search" name="" id="" placeholder="type immobilier,ville,..." x-model="q" class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent ">
+
+                  </div>
+
+              </div>
+          </div>
 
 
  <div class=" py-4 flex-auto grid grid-cols-3 2 xs:flex xs:flex-column md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
@@ -12,6 +25,8 @@
       <div class="flex flex-row">
           <div class=" text-xs uppercase bg-yellow-100 p-1 px-2 text-yellow-700 rounded-2xl">{{data.prix}}</div>
       </div>
+      <h2 class="text-xl font-bold truncate mt-1">{{data.nom}}</h2>
+
        <h2 class="text-xl font-bold truncate mt-1">{{data.type_immobilier}}</h2>
        <h2 class="text-xl font-bold truncate mt-1">{{data.annonceur.ville}}</h2>
 

@@ -15,7 +15,7 @@
           "
         >
 
-          Type immobilier
+      type immobiler
         </label>
         <div class="relative">
           <select
@@ -35,10 +35,9 @@
           >
 
             <option>Appartement</option>
-            <option>Residence</option>
+            <option>Foyer privé</option>
             <option>studio</option>
 
-            <option>Foyer Prive</option>
 
           </select>
           <div
@@ -55,7 +54,37 @@
         </div>
       </div>
     </div>
-
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          class="
+            block
+            uppercase
+            tracking-wide
+            text-grey-darker text-xs
+            font-bold
+            mb-2
+          "
+        >
+        Nom de logement
+        </label>
+        <input
+        formControlName="nom"
+          class="
+            appearance-none
+            block
+            w-full
+            bg-grey-lighter
+            text-grey-darker
+            border border-grey-lighter
+            rounded
+            py-3
+            px-4
+            mb-3
+          "
+        />
+      </div>
+    </div>
     <div class="-mx-3 md:flex mb-6">
       <div class="md:w-1/2 px-3 mb-6 md:mb-0">
         <label
@@ -83,7 +112,7 @@
             py-14
             px-4
             mb-3
-          "
+          " placeholder="description,services,..."
         />
       </div>
     </div>

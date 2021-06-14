@@ -8,7 +8,6 @@ export interface User{
   ville:string;
   datenaissance: Date;
   role: string;
-  isGranted: boolean;
   token: string;
 }
 

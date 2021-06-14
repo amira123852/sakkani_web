@@ -3,7 +3,7 @@
     <!-- form card register -->
         <h3 class="mb-0">Edit Employee</h3>
 
-        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="editForm" >
 
           <div class="form-group">
             <label for="inputName">type_immobilier</label>
@@ -33,7 +33,7 @@
               </svg>
               <span class="mt-2 text-base leading-normal">Select image</span>
 
-                <input type='file' class="hidden" id="upload" accept="image/*" multiple type="file" (change)="uploadFile($event)" />
+                <input type='file' class="hidden" id="upload" accept="image/*" multiple type="file" (change)="uploadFile($event)" formControlName="Photo" />
               </label>
 
               </div>
@@ -48,7 +48,7 @@
 
 
           <div class="form-group">
-            <button class="btn btn-success btn-lg btn-block" type="submit">Update</button>
+            <button class="btn btn-success btn-lg btn-block" type="submit" (click)="update()">Update</button>
           </div>
         </form>
       </div>

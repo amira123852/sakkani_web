@@ -10,7 +10,8 @@ export class AdminUserListComponent implements OnInit {
 
   constructor( private adminService : AdminService) { }
 users :any = [];
-
+nom :any;
+p:number = 1;
   ngOnInit():void
 {
     this.adminService.GetUsers().subscribe(
@@ -27,6 +28,24 @@ users :any = [];
         this.users.splice(i, 1);
       })
     }
+  }
+  Search(){
+    if(this.nom=="") {
+      this.ngOnInit();
+
+    }
+    else {
+      this.users = this.users.filter(res => {
+        return res.nom.toLocaleLowerCase().match(this.nom.toLocaleLowerCase());
+      })
+    }
+
+  }
+  key:string = 'id';
+  reverse:boolean =false;
+  sort(key){
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 
 }

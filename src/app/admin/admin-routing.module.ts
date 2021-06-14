@@ -7,6 +7,7 @@ import { SidebaradminComponent } from './sidebaradmin/sidebaradmin.component';
 import { AdminUserListComponent } from './admin-user-list/admin-user-list.component';
 import { AdminResidenceListComponent } from './admin-residence-list/admin-residence-list.component';
 import { ListContactComponent } from './list-contact/list-contact.component';
+import { DashAdminComponent } from './dash-admin/dash-admin.component';
 const routes: Routes = [
   {path: '', redirectTo: 'admin-sakkani', pathMatch: 'full'},
   {
@@ -14,9 +15,11 @@ const routes: Routes = [
     component: HomepageadminComponent,
 
     children: [
-      {path: '', redirectTo: 'admin-dashboard', pathMatch: 'full'},
+      {path: '', redirectTo: 'admin', pathMatch: 'full'},
       {path: 'admin-dashboard', component: NavbaradminComponent},
       {path: 'admin-dashboard', component: SidebaradminComponent},
+      {path: 'admin', component: DashAdminComponent},
+
       {path: 'list-user', component:AdminUserListComponent},
       {path: 'list-residence', component:AdminResidenceListComponent},
       {path: 'list-contact', component:ListContactComponent}

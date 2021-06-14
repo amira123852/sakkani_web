@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Maison } from 'src/app/models/maison.model';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./edit.component.css'],
 })
 export class EditComponent implements OnInit {
-  editForm: FormGroup;
+  // editForm: FormGroup;
   maison: any = [];
 
   constructor(
@@ -20,37 +21,22 @@ export class EditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.updateMaison();
       let id = this.route.snapshot.paramMap.get('id');
       this.gettMaisonById(id);
-      this.editForm = new FormGroup({
-      type_immobilier: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
-      Photo: new FormControl(null),
-      prix: new FormControl('', Validators.required),
-    });
   }
 
   gettMaisonById(id) {
     this.userService.getMaisonById(id).subscribe((data) => {
       this.maison = data.payload;
-      // this.editForm.setValue({
-      //   type_immobilier: data.payload['type_immobilier'],
-      //   description: data.payload['description'],
-      //   Photo: data.payload['Photo'],
-      //   prix: data.payload['prix']
-      // });
     });
   }
 
-  updateMaison() {
-    this.editForm = this.fb.group({
-      type_immobilier: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      Photo: [''],
-      prix: ['', [Validators.required]]
-    },)
-  }
+  editForm = new FormGroup({
+    type_immobilier: new FormControl("", Validators.required),
+    description: new FormControl("", Validators.required),
+    Photo: new FormControl(""),
+    prix: new FormControl("", Validators.required),
+  });
 
   uploadFile(event) {
     const file = (event.target as HTMLInputElement).files[0];
@@ -60,14 +46,14 @@ export class EditComponent implements OnInit {
     this.editForm.get('Photo').updateValueAndValidity();
   }
 
-  onSubmit() {
-    // alert(JSON.stringify(this.maison))
+  update() {
+    const formValues = this.editForm.value;
     let id = this.route.snapshot.paramMap.get('id');
-    this.userService.updateMaison(id, this.maison)
-          .subscribe(res => {
-            alert(res)
+    // alert(JSON.stringify(this.maison))
+    this.userService.updateMaison(id, formValues)
+          .subscribe((res) => {
+            console.log(res)
             this.router.navigate(["/home/profil"]);
-            console.log('Content updated successfully!')
           }, (error) => {
             console.log(error)
           });

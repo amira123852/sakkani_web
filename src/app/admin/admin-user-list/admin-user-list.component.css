@@ -2,5 +2,33 @@
   color: red;
 }
 .green-icon {
-  color: green;
+  color: #008000;
 }
+#customers {
+
+font-family: Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+width: 120%;
+
+}
+
+#customers td, #customers th {
+border: 1px solid #ddd;
+padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #c9e1f6;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left;
+background-color: #04AA6D;
+color: white;
+}
+#customers td  {
+font-family: 'Times New Roman', Times, serif;
+  }
+

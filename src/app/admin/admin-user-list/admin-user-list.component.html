@@ -1,7 +1,26 @@
+
+
+            <!-- image search box -->
+            <div class=" pr-0 ">
+              <div class="box-wrapper">
+
+                  <div class=" bg-white   rounded flex items-center   w-2/4 p-2  rounded-l-lg shadow-md border border-gray-200">
+                    <button  class="outline-none focus:outline-none"><svg class=" w-5 text-gray-600 h-5 cursor-pointer" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <input name="nom" [(ngModel)]="nom" (ngModelChange)="Search() " type="search" name="" id="" placeholder="entrer le nom pour rechercher" x-model="q" class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent ">
+
+                  </div>
+
+              </div>
+          </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+
 <div class="container">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 
-    <h2 class="h2">Users List</h2>
+    <h2 class="h2">Users</h2>
 
     <a
     class=" bg-gray-300 inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-500"
@@ -14,20 +33,26 @@
   </div>
 
   <div class="table-responsive px-56">
-    <table class="table table-bordered">
+    <table id="customers" class="table table-bordered">
       <thead>
         <tr>
+          <!-- <th (click)="sort('id')">id<i class="fa fa-sort"></i></th> -->
+
           <th scope="col">Nom</th>
           <th scope="col">Email</th>
           <th scope="col">Telephone</th>
           <th scope="col">Ville</th>
           <th scope="col">Date de naissance</th>
+          <th scope="col">Action</th>
+
 
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users; let i = index">
-          <td>{{user.nom}}</td>
+        <tr *ngFor="let user of users | orderBy : key:reverse | paginate: {itemsPerPage:5,currentPage:p}; ">
+          <!-- <td>{{user.id}}</td> -->
+
+          <td >{{user.nom}}</td>
           <td>{{user.email}}</td>
           <td>{{user.telephone}}</td>
           <td>{{user.ville}}</td>
@@ -35,7 +60,8 @@
 
           <td class="text-center">
 
-            <button>             <mat-icon class="green-icon" (click)="updateUser(user._id)">create</mat-icon>
+
+            <button class="p-6"> <mat-icon class="green-icon" (click)="updateUser(user._id)">create</mat-icon>
 
             </button>
             <button> <mat-icon class="red-icon" (click)="deleteUs(user._id)">delete</mat-icon>
@@ -44,6 +70,7 @@
           <!-- <button class="btn btn-sm btn-danger" (click)="deleteUs(user._id)" >Supprimer</button> -->
         </tr>
       </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </table>
   </div>
 </div>

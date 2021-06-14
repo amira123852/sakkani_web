@@ -1,63 +1,81 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthenticationService } from 'src/app/authentication.service';
 import { Reservation } from 'src/app/models/reservation.model';
 import { UserService } from 'src/app/user.service';
+import {
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+  Output,
+  EventEmitter,
+} from '@angular/core';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-description-residence',
   templateUrl: './description-residence.component.html',
-  styleUrls: ['./description-residence.component.css']
+  styleUrls: ['./description-residence.component.css'],
 })
 export class DescriptionResidenceComponent implements OnInit {
   private subscription: Subscription;
-
+  localtair:User;
   routerr: Router;
-maison:any = [];
-reservation: Reservation;
-  addForm = new FormGroup({
-    client: new FormControl('', Validators.required),
-   house: new FormControl('', Validators.required),
- confirmation: new FormControl('', Validators.required),
-  });
+  maison: any = [];
+  reservation: Reservation;
 
-  constructor(   private snackBar: MatSnackBar,    private router: Router,
+  submitted: Boolean = false;
+  comment = '';
+  postComment = [];
+  constructor(
+    private snackBar: MatSnackBar,
 
-    private route: ActivatedRoute ,private userService: UserService) { }
+    private route: ActivatedRoute,
+    private userService: UserService,
+    private router: Router,
+    private authentication: AuthenticationService,
+    private formBuilder: FormBuilder
+  ) {
+    this.localtair=this.authentication.currentUserValue;
+  }
 
   gettMaisonById(id) {
-    this.userService.getMaisonById(id)
-      .subscribe(
-        data =>{
-          this.maison = data.payload;
-          console.log(this.maison);
-        });
-      }
+    this.userService.getMaisonById(id).subscribe((data) => {
+      this.maison = data.payload;
+      console.log(this.maison);
+    });
+  }
 
+  post() {
+    this.postComment.push(this.comment);
+  }
 
-      public postRes() {
-        this.subscription=this.userService.postReservation(this.addForm.value).subscribe({
-          next: (response) => {
-            this.snackBar.open("reservation envoyé", 'Close');
-            this.router.navigate(['/home/login']);
-          },
-          error:(error)=>{
-            this.snackBar.open("error", 'Close');
-          },
-          complete:console.log
+  // console.log(this.addForm.value);
+  //console.log(this.authentication.currentUserValue._id);
 
-        });
+  postRes() {
+    const body={client:this.localtair._id,house:this.maison._id}
+    this.userService.postReservation(body).subscribe(
+      (response) => {
+        this.snackBar.open('reservation envoyee', 'Close');
 
+        // this.router.navigate(['/home/show-residences']);
+      },
+      (error) => console.log(error)
+    );
+  }
 
+  onSubmit() {}
 
-      }
-  ngOnInit():void
-{
-
-  this.gettMaisonById(this.route.snapshot.params['id']);
+  ngOnInit(): void {
+    this.gettMaisonById(this.route.snapshot.params['id']);
+  }
 }
-
-}
-

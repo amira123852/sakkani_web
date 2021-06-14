@@ -10,7 +10,7 @@ import { UserService } from 'src/app/user.service';
 export class AdminResidenceListComponent implements OnInit {
   constructor( private userService : UserService) { }
   maisons :any = [];
-
+  type_immobilier:any ;
     ngOnInit():void
   {
       this.userService.GetHouses().subscribe(
@@ -28,6 +28,17 @@ export class AdminResidenceListComponent implements OnInit {
           })
         }
       }
+      Search(){
+        if(this.type_immobilier=="" ) {
+          this.ngOnInit();
+
+        }
+        else {
+          this.maisons = this.maisons.filter(res => {
+            return res.type_immobilier.toLocaleLowerCase().match(this.type_immobilier.toLocaleLowerCase());
+
+          })
+        }}
       click(id){
         alert(id)
       }

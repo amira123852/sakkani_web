@@ -11,7 +11,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class ShowResidenceComponent implements OnInit {
   maisons:any = [];
-
+  type_immobilier:any ;
   constructor(     private router: Router,
     private autheService: AuthenticationService, private userService: UserService) { }
 
@@ -32,6 +32,17 @@ export class ShowResidenceComponent implements OnInit {
         console.log('Error', error);
        }
        }
+       Search(){
+        if(this.type_immobilier=="" ) {
+          this.ngOnInit();
+
+        }
+        else {
+          this.maisons = this.maisons.filter(res => {
+            return res.type_immobilier.toLocaleLowerCase().match(this.type_immobilier.toLocaleLowerCase());
+
+          })
+        }}
 
 
   deleteMa(id:any, i:any) {

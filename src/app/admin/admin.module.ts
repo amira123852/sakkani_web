@@ -9,16 +9,22 @@ import { AdminUserListComponent } from './admin-user-list/admin-user-list.compon
 import { MaterialModule } from '../shared/material/material.module';
 import { AdminResidenceListComponent } from './admin-residence-list/admin-residence-list.component';
 import { ListContactComponent } from './list-contact/list-contact.component';
+import { DashAdminComponent } from './dash-admin/dash-admin.component';
+import { OrderModule } from 'ngx-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
 @NgModule({
-  declarations: [HomepageadminComponent, NavbaradminComponent, SidebaradminComponent, AdminUserListComponent, AdminResidenceListComponent, ListContactComponent],
+  declarations: [HomepageadminComponent, NavbaradminComponent, SidebaradminComponent, AdminUserListComponent, AdminResidenceListComponent, ListContactComponent, DashAdminComponent],
   imports: [
     CommonModule ,
     AdminRoutingModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    OrderModule,
+    NgxPaginationModule
+
   ],
   exports: [AdminRoutingModule]
 })

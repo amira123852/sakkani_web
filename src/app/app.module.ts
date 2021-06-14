@@ -19,14 +19,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
-import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import { ConsumerModule } from './consumer/consumer.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmationDialogComponent,
 
   ],
   imports: [
@@ -46,7 +47,12 @@ import { ConsumerModule } from './consumer/consumer.module';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    OrderModule,
+
+
 
   ],
   providers: [

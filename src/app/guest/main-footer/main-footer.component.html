@@ -20,7 +20,7 @@
             >Aides au logement</a>
           </li>
           <li class="inline-block mt-2 mr-2 md:block md:mr-0">
-            <a href="#" class="font-light text-gray-800 no-underline hover:underline hover:text-orange-500">Créer un compte</a>
+            <a [routerLink]="['/home/register']" class="font-light text-gray-800 no-underline hover:underline hover:text-orange-500">Créer un compte</a>
           </li>
         </ul>
       </div>
@@ -50,7 +50,7 @@
             <a href="#" class="font-light text-gray-800 no-underline hover:underline hover:text-orange-500">A propos</a>
           </li>
           <li class="inline-block mt-2 mr-2 md:block md:mr-0">
-            <a href="#" class="font-light text-gray-800 no-underline hover:underline hover:text-orange-500">Contact</a>
+            <a href="#" class="font-light text-gray-800 no-underline hover:underline hover:text-orange-500" [routerLink]="['/home/contact']">Contact</a>
           </li>
         </ul>
       </div>
