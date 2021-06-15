@@ -65,6 +65,9 @@ export class UserService {
       reservation
     ) as Observable<any>;
   }
+  GetReservations() {
+    return this.http.get(`${environment.baseURL}/reservations`) as Observable<any>;
+  }
   public postContact(contact: Contact): Observable<any> {
     return this.http.post(
       `${environment.baseURL}/users/contact`,

@@ -1,4 +1,10 @@
 <!--Nav-->
+  <pre><code>
+{{
+  currentUser$ | async | json
+}}
+</code></pre>
+
 <nav id="header" class="top-0 h-26 max-h-full z-30 w-full py-1 bg-white-800">
   <div
     class="container flex flex-wrap items-center justify-between w-full px-1 py-1 mx-auto mt-0"
@@ -25,10 +31,10 @@
         <ul
           class="items-center justify-between pt-4 text-base text-black md:flex md:pt-0"
         >
-        <li>
 
+        <!-- menu-item Etudiant-->
+        <li *ngIf="(currentUser$ | async)?.role ==='STUDENT'">
           <a
-
             class="inline-block px-4 py-2 no-underline bg-blue-400 rounded-md text-white hover:underline hover:bg-gray-500"
             [routerLink]="['/home/login']"
             routerLinkActive="router-link-active"
@@ -37,38 +43,49 @@
           <mat-icon class="white-icon">account_circle</mat-icon>
           Etudiant
           </a>
+    <!-- fin menu-item Etudiant-->
 
-        </li>
-          <!-- <li>
+  </li>
+  <!-- menu-item Login-->
+           <li *ngIf="!connected">
             <a
             class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
-            [routerLink]="['/home/add']"
+            [routerLink]="['/home/login']"
               routerLinkActive="router-link-active"
             >
-              PUBLIER UNE ANNONCE
+              Login
             </a>
-          </li> -->
-          <!-- <li>
+          </li>
+
+           <!-- fin menu-item login-->
+
+            <!-- menu-item Logout-->
+          <li *ngIf="connected" (click)="logout()">
             <a
               class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
               [routerLink]="['/home/login']"
               routerLinkActive="router-link-active"
             >
-              Se connecter
+              Logout
             </a>
-          </li> -->
+          </li>
 
-
-          <!-- <li>
+ <!-- menu-item logout-->
+  <!-- menu-item Dashboard-->
+          <li *ngIf="(currentUser$ | async)?.role ==='ADMIN'">
             <a
               class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
               [routerLink]="['/home/contact']"
               routerLinkActive="router-link-active"
             >
-              Contact
+              Dashboard
             </a>
-          </li> -->
-          <li>
+          </li>
+
+           <!-- fin menu-item Dashboard-->
+
+            <!-- menu-item Announceur-->
+          <li *ngIf="(currentUser$ | async)?.role ==='PROVIDER'">
             <a
               class="inline-block px-4 py-2 no-underline rounded-md text-white bg-gray-800 hover:underline hover:bg-gray-500"
               [routerLink]="['/home/add']"
@@ -78,6 +95,7 @@
             Publier une annonce
             </a>
           </li>
+           <!-- fin menu-item Annonceur-->
 
         </ul>
       </nav>

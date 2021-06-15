@@ -24,6 +24,7 @@ export class MaisonService {
     return throwError(
       'Something bad happened; please try again later.');
   }
+
   getMaisonById(id: string): Observable<any> {
     const url = `${environment.baseURL}/${id}`;
     return this.http.get<Maison>(url).pipe(

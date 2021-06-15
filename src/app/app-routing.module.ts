@@ -21,6 +21,7 @@ import { DescriptionResidenceComponent } from './guest/description-residence/des
 import { AideComponent } from './guest/aide/aide.component';
 import { ProviderProfilComponent } from './provider/provider-profil/provider-profil.component';
 import { EditComponent } from './provider/edit/edit.component';
+import { ListReservationComponent } from './provider/list-reservation/list-reservation.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,18 @@ const routes: Routes = [
       component: ProviderProfilComponent,
       data: { title: 'profil' },
       canActivate: [AuthGuard],
+      },
+      // {
+      //   path: 'sidebar',
+      //   component: ProviderProfilComponent,
+      //   data: { title: 'profil' },
+      //   canActivate: [AuthGuard],
+      //   },
+      {
+        path: 'listres',
+        component: ListReservationComponent,
+        data: { title: 'listres' },
+        canActivate: [AuthGuard],
       },
       {
         path: 'edit/:id',

@@ -1,0 +1,90 @@
+<div class="container">
+  <div
+    class="
+      d-flex
+      justify-content-between
+      flex-wrap flex-md-nowrap
+      align-items-center
+      pt-3
+      pb-2
+      mb-3
+      border-bottom
+    "
+  >
+    <h2 class="text-gray-900 font-bold text-3xl">Liste de réservations</h2>
+
+    <a
+      class="
+        bg-gray-300
+        inline-block
+        px-4
+        py-2
+        no-underline
+        rounded-md
+        hover:text-black
+        hover:underline
+        hover:bg-gray-500
+      "
+      [routerLink]="['/home/add']"
+      routerLinkActive="router-link-active"
+    >
+      Réservations confirmées
+    </a>
+  </div>
+  <div class="table-responsive px-56 ">
+    <table id="customers" class=" shadow-md table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Logement reservé</th>
+          <th scope="col">N°Reservation</th>
+          <th scope="col">date de reservation</th>
+
+          <th scope="col">Confirmée</th>
+          <th scope="col">Prix</th>
+          <th scope="col">Client</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of reservations; let i = index">
+          <td>
+            <h3 class="text-indigo-900 font-bold">{{ r.house.nom }}</h3>
+          </td>
+          <td><h3 class="text-gray-900 font-bold">{{ i + 1 }}</h3></td>
+          <td>date..</td>
+
+          <td class="text-center">
+            <button class="p-6">
+              <mat-icon class="green-icon">done</mat-icon>
+            </button>
+            <button>
+              <mat-icon class="red-icon" (click)="deleteMa(maison._id)"
+                >delete</mat-icon
+              >
+            </button>
+          </td>
+
+          <td>
+            <h3 class="text-gray-900 font-bold">{{ r.house.prix }}</h3>
+          </td>
+          <td>
+            <h3 class="text-gray-900 font-bold">{{ r.client.nom }}</h3>
+            <button class="bg-yellow-100 px-3 font-semibold ">
+                details
+
+            </button>
+          </td>
+          <!-- <button class="btn btn-sm btn-primary" (click)="updateUser(user._id)">Modifier</button> -->
+          <!-- <button class="btn btn-sm btn-danger" (click)="deleteUs(user._id)" >Supprimer</button> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<a
+class=" font-bold  absolute bottom-16 left-0 h-32 w-32 inline-block px-6  no-underline rounded-md text-green-900   "
+[routerLink]="['/home/profil']"
+routerLinkActive="router-link-active"
+>
+<mat-icon class="green-icon font-bold ">subdirectory_arrow_left</mat-icon> retour
+
+</a>

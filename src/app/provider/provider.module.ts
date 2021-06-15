@@ -8,6 +8,9 @@ import { MaterialModule } from '../shared/material/material.module';
 import { AddComponent } from './add/add.component';
 import { ProviderProfilComponent } from './provider-profil/provider-profil.component';
 import { EditComponent } from './edit/edit.component';
+import { ListReservationComponent } from './list-reservation/list-reservation.component';
+import { ProviderSidebarComponent } from './provider-sidebar/provider-sidebar.component';
+import { ListAnnonceComponent } from './list-annonce/list-annonce.component';
 
 
 @NgModule({
@@ -15,6 +18,12 @@ import { EditComponent } from './edit/edit.component';
     AddComponent,
     ProviderProfilComponent,
     EditComponent,
+    ListReservationComponent,
+    ProviderSidebarComponent,
+    ListAnnonceComponent,
+    ProviderSidebarComponent,
+    ListAnnonceComponent
+
   ],
   imports: [
     CommonModule,
