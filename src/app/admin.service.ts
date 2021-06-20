@@ -16,7 +16,9 @@ export class AdminService {
 deleteUser(id){
   return this.http.delete(`${environment.baseURL}/users/delete/${id}`) as Observable<any>;;
 }
-
+deleteContact(id){
+  return this.http.delete(`${environment.baseURL}/users/delete/${id}`) as Observable<any>;;
+}
 
 updateUser(id,user:User):Observable<any>{
    let _user={...user};

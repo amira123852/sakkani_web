@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 import { Maison } from 'src/app/models/maison.model';
 import { UserService } from 'src/app/user.service';
 import { AuthenticationService } from 'src/app/authentication.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add',
@@ -17,6 +18,10 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./add.component.css'],
 })
 export class AddComponent implements OnInit {
+  public currentUser$:Observable<any>;
+
+  public connected:boolean=false;
+  public subcription: Subscription;
   maison: Maison;
   addForm = new FormGroup({
     type_immobilier: new FormControl('', Validators.required),
@@ -26,6 +31,7 @@ export class AddComponent implements OnInit {
     Photo: new FormControl(null),
     prix: new FormControl('', Validators.required),
   });
+  authenticationService: any;
   constructor(
     private service: UserService,
     private router: Router,
@@ -64,5 +70,18 @@ export class AddComponent implements OnInit {
       },
       (error) => console.log(error)
     );
-  }
-}
+
+  this.currentUser$=this.authenticationService.currentUser;
+  this.subcription=this.authenticationService.currentUser.subscribe({
+    next: user => {
+      if(user){
+        this.connected=true
+      }else{
+        this.connected=false
+      }
+    },
+    error:console.log,
+    complete:console.log}
+    );
+
+}}

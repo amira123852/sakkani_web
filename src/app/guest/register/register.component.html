@@ -48,7 +48,16 @@
                   <div *ngIf="nom.errors?.required">Nom est oblogatoire.</div>
                 </div>
               </div>
-
+              <div class="py-1">
+                <label>Role</label>
+                <select formControlName="role" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
+                    <option value="STUDENT">STUDENT</option>
+                    <option value="PROVIDER">PROVIDER</option>
+                </select>
+                <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+                    <div *ngIf="f.role.errors.required">Role is required</div>
+                </div>
+              </div>
               <div class="py-1">
                 <span class="px-1 text-sm text-gray-600">Ville</span>
                 <input
@@ -190,80 +199,29 @@
               </div>
             </div>
 
-            <div class="py-1">
-              <span class="px-1 text-sm text-gray-600">Mot de passe</span>
 
-              <input
-              class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
-                formControlName="password"
-                class="form-control"
-                placeholder=""
-                type="password"
-                x-model="password"
-                class="
-                  text-md
-                  block
-                  px-3
-                  py-2
-                  rounded-lg
-                  w-full
-                  bg-white
-                  border-2 border-gray-300
-                  placeholder-gray-600
-                  shadow-md
-                  focus:placeholder-gray-500
-                  focus:bg-white
-                  focus:border-gray-600
-                  focus:outline-none
-                "
-              />
-              <div
-              *ngIf="submitted && f.password.errors"
-                class="alert alert-danger"
-              >
-                <div *ngIf="f.password.errors.required">
-                  Mot de passe est obligatoire.
-                </div>
-              </div>
-            </div>
+
+
+
             <div class="py-1">
-              <span class="px-1 text-sm text-gray-600"
-                >Confirmer Mot de passe</span
-              >
-              <input
-                type="password"
-                formControlName="confirmPassword"
-                [ngClass]="{
-                  'is-invalid': submitted && f.confirmPassword.errors
-                }"
-                class="
-                  text-md
-                  block
-                  px-3
-                  py-2
-                  rounded-lg
-                  w-full
-                  bg-white
-                  border-2 border-gray-300
-                  placeholder-gray-600
-                  shadow-md
-                  focus:placeholder-gray-500
-                  focus:bg-white
-                  focus:border-gray-600
-                  focus:outline-none
-                "
-              />
-              <div
-                *ngIf="submitted && f.confirmPassword.errors"
-                class="invalid-feedback"
-              >
-                <div *ngIf="f.confirmPassword.errors.required">
-                  Confirm Password is required
+
+
+              <div class="form-group col">
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
                 </div>
-                <div *ngIf="f.confirmPassword.errors.mustMatch">
-                  Passwords must match
+            </div>
+            <div class="form-group col">
+                <label>Confirm Password</label>
+                <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
                 </div>
-              </div>
+            </div>
             </div>
             <div></div>
           </form>

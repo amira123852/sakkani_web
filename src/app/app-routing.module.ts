@@ -22,6 +22,8 @@ import { AideComponent } from './guest/aide/aide.component';
 import { ProviderProfilComponent } from './provider/provider-profil/provider-profil.component';
 import { EditComponent } from './provider/edit/edit.component';
 import { ListReservationComponent } from './provider/list-reservation/list-reservation.component';
+import { InfoProviderComponent } from './provider/info-provider/info-provider.component';
+import { EditProfilComponent } from './provider/edit-profil/edit-profil.component';
 
 const routes: Routes = [
   {
@@ -63,6 +65,12 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
+        path: 'edit-profil/:id',
+        component: EditProfilComponent,
+        data: { title: 'edit-profil' },
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'show-residences',
         component: ShowResidenceComponent,
         data: { title: 'Show Residences' },
@@ -71,6 +79,11 @@ const routes: Routes = [
         path: 'description/:id',
         component: DescriptionResidenceComponent,
         data: { title: 'description' },
+      },
+      {
+        path: 'info',
+        component:InfoProviderComponent,
+        data: { title: 'info' },
       },
 
       { path: 'search', component: SearchResidenceComponent },
@@ -87,8 +100,8 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
-    // canActivate:[AuthGuard,AdminGuard]
-  },
+      canActivate:[AuthGuard,AdminGuard],
+   },
 
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

@@ -1,108 +1,88 @@
+<app-navbaradmin></app-navbaradmin>
+
+<div class="flex flex-row h-6 py-32 px-52">
 
 
-            <!-- image search box -->
-            <div class=" pr-0 ">
-              <div class="box-wrapper">
 
-                  <div class=" bg-white   rounded flex items-center   w-2/4 p-2  rounded-l-lg shadow-md border border-gray-200">
-                    <button  class="outline-none focus:outline-none"><svg class=" w-5 text-gray-600 h-5 cursor-pointer" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
-                    <input name="type_immobilier" [(ngModel)]="type_immobilier"  (ngModelChange)="Search() " type="search" name="" id="" placeholder="type immobilier,ville,.." x-model="q" class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent ">
 
-                  </div>
 
-              </div>
-          </div>
 
-<div class="container">
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
 
-    <h2 class="h2">Users List</h2>
+  <div class="container">
+    <form class="form-inline p-32  py-6 waves-light" mdbWavesEffect>
+      <div class="md-form mt-0">
 
-    <a
-    class=" bg-gray-300 inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-500"
-    [routerLink]="['/home/add']"
+        <input
+        class="form-control mr-sm-2" type="text" placeholder="type immobillier,ville...">
+      </div>
+    </form>
 
-    routerLinkActive="router-link-active"
-  >
-  Ajouter une annonce
-  </a>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+    <!-- image search box -->
+
+
+
+
+    </div>
+
+    <div class="flex flex-col px-16 h-screen">
+      <div class="flex-grow overflow-auto">
+        <button mat-raised-button >
+          <mat-icon>add</mat-icon>Ajouter
+        </button>
+        <table  class="  mat-elevation-z8 ">
+          <thead>
+            <tr>
+              <th class="sticky top-0 px-6 py-3  text-center text-black bg-gray-300">Image</th>
+
+              <th class="sticky top-0 px-6 py-3 text-black   text-center bg-gray-300">type</th>
+              <th class="sticky top-0 px-6 py-3  text-center text-black bg-gray-300">Nom de logement</th>
+
+              <th class="sticky top-0 px-6 py-3  text-center text-black bg-gray-300">ville</th>
+              <th class="sticky top-0 px-6 py-3  text-center text-black bg-gray-300">Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y bg-green-100">
+            <tr *ngFor="let data of maisons | orderBy : key:reverse | paginate: {itemsPerPage:5,currentPage:p}; ">
+              <td class="px-6 py-4 text-center">
+                  <img class="rounded-t-xl  w-12 h-12 object-cover" [src]="data.Photo">
+                </td>
+              <td class="px-6 py-4 text-center">{{data.type_immobilier}}</td>
+              <td class="px-6 py-4 text-center">{{data.nom}}</td>
+
+              <td class="px-6 py-4 text-center">{{data.annonceur.ville}}</td>
+              <td class="text-center">
+
+
+
+                  <button> <mat-icon class="red-icon" (click)="deleteMa(maison._id)">block</mat-icon>
+                </button>
+                <button
+                 class=" p-6 hover:opacity-100 font-bold  hover:text-red-900 "              [routerLink]="['/home/description', data._id]"
+              >
+                details
+                </button>
+            </tr>
+
+
+
+
+
+          </tbody>
+          <pagination-controls (pageChange)="p =$event"></pagination-controls>
+
+
+
+
+
+
+
+        </table>
+      </div>
+    </div>
+
 
   </div>
-
-  <div class="table-responsive px-56">
-    <table  id="customers" class="table table-bordered">
-      <thead>
-        <tr>
-
-          <th scope="col">Image</th>
-          <th scope="col">type</th>
-          <th scope="col">ville</th>
-          <th scope="col">Action</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let maison of maisons; let i = index">
-          <td>
-            <img class="rounded-t-xl  w-8 h-8 object-cover" [src]="maison.Photo">
-          </td>
-          <td>{{maison.type_immobilier}}</td>
-          <td>{{maison.annonceur.ville}}</td>
-
-          <td class="text-center">
-
-          <button class="p-6">             <mat-icon class="green-icon" >create</mat-icon>
-
-            </button>
-            <button> <mat-icon class="red-icon" (click)="deleteMa(maison._id)">block</mat-icon>
-          </button>
-            <!-- <button class="btn btn-sm btn-primary" (click)="updateUser(user._id)">Modifier</button> -->
-          <!-- <button class="btn btn-sm btn-danger" (click)="deleteUs(user._id)" >Supprimer</button> -->
-        </tr>
-      </tbody>
-    </table>
   </div>
-</div>
-
- <!-- <div class=" px-72 grid grid-cols-3 2 lg:grid-cols-3 xl:grid-cols-4 ">
-  <app-card  class= "px-3  transition-transform transform hover:scale-105 cursor-pointer duration-300 ease-in-out"
-   *ngFor="let data of maisons"><div class="rounded-xl shadow-xl">
-    <img class="rounded-t-xl  w-full h-36 object-cover" [src]="data.Photo">
-    <div class="flex flex-col p-7">
-        <div class="flex flex-row">
-            <div class=" text-xs uppercase bg-yellow-100 p-1 px-2 text-yellow-700 rounded-2xl">{{data.prix}}</div>
-        </div>
-         <h2 class="text-xl font-bold truncate mt-1">{{data.type_immobilier}}</h2>
-       <p class="text-base text-gray-600 mt-1">{{data.description}}</p>
-       <div class="flex flex-row mt-5 items-center justify-start"> -->
-
-    <!-- </div>
-    <div class="p-3  mt-2 text-center space-x-4 md:block">
-      <button class="mb-2 md:mb-0 bg-yellow-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">
-      Modifier
-      </button>
-      <button  (click)="deleteMa(data._id)" class="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600">Bloquer</button>
-  </div>
-
-  </div>
-  </div>
-  </app-card>
-  </div> -->
-  <!-- This is an example component -->
-
-      <!-- <div *ngFor="let data of maisons" class=" blogs__wraper bg-green-300  py-20 px-20">
-
-          <div class="flex justify-between items-center">
-
-       <div class="blogs bg-white mr-5">
-           <img  [src]="data.Photo" class="">
-           <div class="p-5">
-          <h1 class="text-2xl font-bold text-green-800 py-2"> {{data.type_immobilier}}</h1>
-           <p class="bg-white text-sm text-black">{{data.prix}}</p>
-           <p class="bg-white text-sm text-black">{{data.annonceur.ville}}</p>
-
-           <a href="" class="py-2 px-3 mt-4 px-6 text-white bg-green-500 inline-block rounded" [routerLink]="['/home/description', data._id]">Détails</a>
-           </div>
-       </div>
-
-   -->

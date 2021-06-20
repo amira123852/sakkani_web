@@ -10,7 +10,13 @@ import { UserService } from 'src/app/user.service';
 export class AdminResidenceListComponent implements OnInit {
   constructor( private userService : UserService) { }
   maisons :any = [];
+  maison :any = [];
+
   type_immobilier:any ;
+  p:number = 1;
+
+ville:any ;
+
     ngOnInit():void
   {
       this.userService.GetHouses().subscribe(
@@ -22,25 +28,39 @@ export class AdminResidenceListComponent implements OnInit {
 
       deleteMa(id:any, i:any) {
         console.log(id);
-        if(window.confirm('Do you want to go ahead?')) {
+        if(window.confirm('Do you want to delete house?'))
+       {
           this.userService.deleteMaison(id).subscribe((res) => {
             this.maisons.splice(i, 1);
           })
         }
       }
+      gettMaisonById(id) {
+        this.userService.getMaisonById(id).subscribe((data) => {
+          this.maison = data.payload;
+          console.log(this.maison);
+        });
+      }
       Search(){
-        if(this.type_immobilier=="" ) {
+        if(this.ville=="" ) {
           this.ngOnInit();
 
         }
         else {
           this.maisons = this.maisons.filter(res => {
-            return res.type_immobilier.toLocaleLowerCase().match(this.type_immobilier.toLocaleLowerCase());
+            return res.ville.toLocaleLowerCase().match(this.ville.toLocaleLowerCase());
 
           })
         }}
       click(id){
         alert(id)
       }
+      key:string = 'id';
+      reverse:boolean =false;
+      sort(key){
+        this.key = key;
+        this.reverse = !this.reverse;
+      }
+
   }
 

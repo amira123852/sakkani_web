@@ -10,6 +10,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class ProviderSidebarComponent implements OnInit {
   maisons:any = [];
+  users:any = [];
 
   constructor(     private router: Router,
     private autheService: AuthenticationService, private userService: UserService) { }
@@ -17,6 +18,12 @@ export class ProviderSidebarComponent implements OnInit {
 
   ngOnInit():void
 {
+  this. userService.GetUsers().subscribe(
+    data =>{
+      this.users = data.payload;
+      console.log(this.users);
+    });
+
     this. userService.GetHouses().subscribe(
       data =>{
         this.maisons = data.payload;

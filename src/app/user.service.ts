@@ -40,22 +40,30 @@ export class UserService {
   }
 
   updateMaison(id, data): Observable<any> {
-    alert(data);
+    //  let _maison={...data};
+    return this.http.put(`${environment.baseURL}/maisons/update/${id}`,data) as Observable<any>;
+  }
+  updateUser(id, data): Observable<any> {
     //  let _maison={...data};
     return this.http.put(
-      `${environment.baseURL}/maisons/update/${id}`,
-      JSON.stringify(data)
+      `${environment.baseURL}/users/update/${id}`,  data
     ) as Observable<any>;
-    alert('hello');
   }
-
   GetHouses() {
     return this.http.get(`${environment.baseURL}/maisons`) as Observable<any>;
+  }
+  GetUsers() {
+    return this.http.get(`${environment.baseURL}/users`) as Observable<any>;
   }
 
   getMaisonById(id) {
     return this.http.get(
       `${environment.baseURL}/maisons/${id}`
+    ) as Observable<any>;
+  }
+  getUserById(id) {
+    return this.http.get(
+      `${environment.baseURL}/users/${id}`
     ) as Observable<any>;
   }
 

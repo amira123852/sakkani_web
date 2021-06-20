@@ -206,7 +206,7 @@
 
     <div class="-mx-3 md:flex mb-6">
       <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-      <button
+      <button  *ngIf="(currentUser$ | async)?.role ==='PROVIDER'"
         type="submit"
         class="max-w-2xl
           border-2 border-gray-100

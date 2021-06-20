@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControlOptions, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user.service';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,6 +12,9 @@ export class RegisterComponent implements OnInit,OnDestroy {
   registerForm: FormGroup;
   private subscription: Subscription;
     submitted = false;
+    id!: string;
+    isAddMode!: boolean;
+    loading = false;
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -20,17 +23,27 @@ export class RegisterComponent implements OnInit,OnDestroy {
     private snackBar:MatSnackBar) { }
 
     ngOnInit() {
+      this.id = this.route.snapshot.params['id'];
+      this.isAddMode = !this.id;
+      const passwordValidators = [Validators.minLength(6)];
+      if (this.isAddMode) {
+          passwordValidators.push(Validators.required);
+      }
+
       this.registerForm = this.formBuilder.group({
       nom: ['', Validators.required],
+      role: ['', Validators.required],
+
       email: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.minLength(6), this.isAddMode ? Validators.required : Validators.nullValidator]],
       telephone: ['', Validators.required],
       ville: ['', Validators.required],
+
       datenaissance: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-  }, {
+      confirmPassword: ['', this.isAddMode ? Validators.required : Validators.nullValidator]
+    });   {
       validator: MustMatch('password', 'confirmPassword')
-  });
+  };
 }
 
 // convenience getter for easy access to form fields
@@ -53,6 +66,8 @@ onReset() {
 
 
   get nom() { return this.registerForm.get('nom'); }
+  get role() { return this.registerForm.get('role'); }
+
   get  email() { return this.registerForm.get('email'); }
   get password() { return this.registerForm.get('password'); }
   get telephone() { return this.registerForm.get('telephone'); }

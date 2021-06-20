@@ -11,6 +11,9 @@ import { EditComponent } from './edit/edit.component';
 import { ListReservationComponent } from './list-reservation/list-reservation.component';
 import { ProviderSidebarComponent } from './provider-sidebar/provider-sidebar.component';
 import { ListAnnonceComponent } from './list-annonce/list-annonce.component';
+import { InfoProviderComponent } from './info-provider/info-provider.component';
+import { UserService } from '../user.service';
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
 
 
 @NgModule({
@@ -22,7 +25,9 @@ import { ListAnnonceComponent } from './list-annonce/list-annonce.component';
     ProviderSidebarComponent,
     ListAnnonceComponent,
     ProviderSidebarComponent,
-    ListAnnonceComponent
+    ListAnnonceComponent,
+    InfoProviderComponent,
+    EditProfilComponent
 
   ],
   imports: [
@@ -32,6 +37,7 @@ import { ListAnnonceComponent } from './list-annonce/list-annonce.component';
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule
-  ]
+  ],
+  providers:[UserService]
 })
 export class ProviderModule { }

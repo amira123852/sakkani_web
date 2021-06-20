@@ -32,6 +32,7 @@ export class ShowResidenceComponent implements OnInit {
         console.log('Error', error);
        }
        }
+
        Search(){
         if(this.type_immobilier=="" ) {
           this.ngOnInit();

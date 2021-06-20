@@ -20,12 +20,13 @@ import { ConsumerModule } from '../consumer/consumer.module';
 import { EditResidenceComponent } from './edit-residence/edit-residence.component';
 import { HeaderComponent } from './header/header.component';
 import { AideComponent } from './aide/aide.component';
+import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 
 
 
 @NgModule({
   declarations: [
-
+    MatConfirmDialogComponent ,
     MainNavbarComponent,
     MainFooterComponent,
     MainLandpageComponent,

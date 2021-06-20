@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { AdminService } from 'src/app/admin.service';
+import { DialogService } from 'src/app/guest/dialog.service';
+import { NotificationService } from 'src/app/guest/notification.service';
 
 @Component({
   selector: 'app-admin-user-list',
@@ -8,10 +11,13 @@ import { AdminService } from 'src/app/admin.service';
 })
 export class AdminUserListComponent implements OnInit {
 
-  constructor( private adminService : AdminService) { }
+  constructor( private adminService : AdminService
+    ,private dialogService:DialogService, private notificationservice:NotificationService
+    ) { }
 users :any = [];
 nom :any;
 p:number = 1;
+@ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit():void
 {
     this.adminService.GetUsers().subscribe(
@@ -22,13 +28,21 @@ p:number = 1;
     }
 
   deleteUs(id:any, i:any) {
-    console.log(id);
-    if(window.confirm('Do you want to go ahead?')) {
-      this.adminService.deleteUser(id).subscribe((res) => {
-        this.users.splice(i, 1);
-      })
+    this.dialogService.openConfirmDialog('vous etes sur de supprimer cet utilisateur ?')
+    .afterClosed()
+      .subscribe(res =>{
+        if(res){
+        this.adminService.deleteUser(id); {
+
+          this.notificationservice.success('! suppression terminé');
+          this.users.splice(i, 1);
+
+        }
+        }
+      });
     }
-  }
+
+
   Search(){
     if(this.nom=="") {
       this.ngOnInit();

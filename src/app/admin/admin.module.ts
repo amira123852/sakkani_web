@@ -12,18 +12,23 @@ import { ListContactComponent } from './list-contact/list-contact.component';
 import { DashAdminComponent } from './dash-admin/dash-admin.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
-
-
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { DescriptionUserComponent } from './description-user/description-user.component';
+import { EditProfilAdminComponent } from './edit-profil-admin/edit-profil-admin.component';
+import { InfoProfilComponent } from './info-profil/info-profil.component';
+// import { GuestModule } from '../guest/guest.module';
+// import { MainFooterComponent } from '../guest/main-footer/main-footer.component';
 
 @NgModule({
-  declarations: [HomepageadminComponent, NavbaradminComponent, SidebaradminComponent, AdminUserListComponent, AdminResidenceListComponent, ListContactComponent, DashAdminComponent],
+  declarations: [HomepageadminComponent, NavbaradminComponent, SidebaradminComponent, AdminUserListComponent, AdminResidenceListComponent, ListContactComponent, DashAdminComponent, EditUserComponent, DescriptionUserComponent, EditProfilAdminComponent, InfoProfilComponent],
   imports: [
     CommonModule ,
     AdminRoutingModule,
     RouterModule,
     MaterialModule,
     OrderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+
 
   ],
   exports: [AdminRoutingModule]

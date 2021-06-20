@@ -1,35 +1,82 @@
-<div *ngFor="let c of contacts; let i = index"
-								class=" py-12 container mb-2 flex mx-auto w-full items-center justify-center"
-							>
-								<ul class="flex flex-col p-4">
-									<li class="border-gray-400 flex flex-row">
-										<div
-											class="select-none flex flex-1 items-center p-4 transition duration-500 ease-in-out transform hover:-translate-y-2 rounded-2xl border-2 p-6 hover:shadow-2xl border-green-800"
-										>
-											<div class="flex-1 pl-1 mr-16">
-												<div class="font-medium">
-                          {{c.message}} je suis etudiante aide moi voici mon telephone et mon email
-                          {{c.telephone}}
-                       <h1 class="border-green-800"> {{c.email}}</h1>
+<app-navbaradmin></app-navbaradmin>
 
-
-											</div>
-                    </div>
-											<div
-												class="w-1/4 text-wrap text-center flex text-white text-bold flex-col rounded-md bg-green-700 justify-center items-center mr-10 p-2"
-											>
-                      {{c.nom}}
-
-                    <!-- {{c.email}} -->
-
-
-											</div>
-										</div>
-									</li>
+<div class="flex flex-row h-6 py-32 px-52">
 
 
 
 
 
-								</ul>
-							</div>
+
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+
+  <div class="container">
+
+      <!-- <h2 class="h2">Users</h2> -->
+    <!-- image search box -->
+    <!-- <div class=" pr-0 ">
+      <div class="box-wrapper">
+
+          <div class=" bg-white   rounded flex items-center   w-full py-2 px-32 rounded-l-lg shadow-md border border-gray-200">
+            <button  class="outline-none focus:outline-none"><svg class=" w-5 text-gray-600 h-5 cursor-pointer" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+            <input name="nom" [(ngModel)]="nom" (ngModelChange)="Search() " type="search" name="" id="" placeholder="entrer le nom pour rechercher" x-model="q" class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent ">
+
+          </div>
+
+      </div>
+  </div> -->
+
+
+
+    <div class="flex flex-col px-16 h-screen">
+      <div class="flex-grow overflow-auto">
+        <table class="relative w-full border">
+          <thead>
+            <tr>
+
+              <th class="sticky top-0 px-6 py-3 text-blue-100 bg-blue-700">Nom</th>
+              <th class="sticky top-0 px-6 text-center  py-3 text-blue-100 bg-blue-700">Email</th>
+              <th class="sticky top-0 px-6 text-center py-3 text-blue-100 bg-blue-700">Telephone</th>
+              <th class="sticky top-0 px-6  text-center py-3 text-blue-100 bg-blue-700">Messages</th>
+              <th class="sticky top-0 px-6 text-center py-3 text-blue-100 bg-blue-700">Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y bg-green-100">
+            <tr *ngFor="let user of contacts  | orderBy : key:reverse | paginate: {itemsPerPage:5,currentPage:p};let i = index ">
+
+              <td class="px-6 py-4 text-center">{{user.nom}}</td>
+
+              <td class="px-6 py-4 text-center">{{user.email}}</td>
+              <td class="px-6 py-4 text-center">{{user.telephone}}</td>
+              <td class="px-6 py-4 text-center">{{user.message}}</td>
+              <td class="text-center">
+
+
+    <button class="p-6"> <mat-icon class="red-icon" (click)="deleteMe(user._id)">delete</mat-icon>
+              </button>
+              <!-- <button
+              class=" p-6 hover:opacity-100 font-bold  hover:text-red-900 "              [routerLink]="['description-user', user._id]"
+           >
+             details
+             </button> -->
+            </tr>
+
+
+
+
+
+          </tbody>
+
+          <pagination-controls (pageChange)="p =$event"></pagination-controls>
+
+
+
+
+
+
+        </table>
+      </div>
+    </div>
+
+
+  </div>
+  </div>

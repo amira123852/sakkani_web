@@ -27,6 +27,7 @@ import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
+
     AppComponent,
 
   ],

@@ -7,7 +7,7 @@ import { AdminService } from 'src/app/admin.service';
   styleUrls: ['./list-contact.component.css']
 })
 export class ListContactComponent implements OnInit {
-
+  p:number = 1;
   constructor( private adminService : AdminService) { }
   contacts :any = [];
 
@@ -19,5 +19,17 @@ export class ListContactComponent implements OnInit {
           console.log(this.contacts);
         });
       }
-
-}
+      key:string = 'id';
+      reverse:boolean =false;
+      sort(key){
+        this.key = key;
+        this.reverse = !this.reverse;
+      }
+      deleteMe(id:any, i:any) {
+        console.log(id);
+        if(window.confirm('Do you want to delete message?')) {
+          this.adminService.deleteContact(id).subscribe((res) => {
+            this.contacts.splice(i, 1);
+          })
+        }
+      }}

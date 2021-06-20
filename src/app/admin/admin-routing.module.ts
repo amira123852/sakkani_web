@@ -8,6 +8,9 @@ import { AdminUserListComponent } from './admin-user-list/admin-user-list.compon
 import { AdminResidenceListComponent } from './admin-residence-list/admin-residence-list.component';
 import { ListContactComponent } from './list-contact/list-contact.component';
 import { DashAdminComponent } from './dash-admin/dash-admin.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { DescriptionUserComponent } from './description-user/description-user.component';
+import { InfoProfilComponent } from './info-profil/info-profil.component';
 const routes: Routes = [
   {path: '', redirectTo: 'admin-sakkani', pathMatch: 'full'},
   {
@@ -22,7 +25,11 @@ const routes: Routes = [
 
       {path: 'list-user', component:AdminUserListComponent},
       {path: 'list-residence', component:AdminResidenceListComponent},
-      {path: 'list-contact', component:ListContactComponent}
+      {path: 'editu/:id', component:EditUserComponent},
+      {path: 'profil-admin', component:InfoProfilComponent},
+
+      {path: 'list-contact', component:ListContactComponent},
+      {path: 'description-user', component:DescriptionUserComponent}
 
     ]
   }
