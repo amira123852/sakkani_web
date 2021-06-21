@@ -49,6 +49,16 @@
                 </div>
               </div>
               <div class="py-1">
+                <label>Sexe</label>
+                <select formControlName="sexe" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sexe.errors }">
+                    <option value="STUDENT">Femme</option>
+                    <option value="PROVIDER">Homme</option>
+                </select>
+                <div *ngIf="submitted && f.sexe.errors" class="invalid-feedback">
+                    <div *ngIf="f.sexe.errors.required">sexe is required</div>
+                </div>
+              </div>
+              <div class="py-1">
                 <label>Role</label>
                 <select formControlName="role" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
                     <option value="STUDENT">STUDENT</option>
@@ -207,7 +217,7 @@
 
 
               <div class="form-group col">
-                <label>Password</label>
+                <label>Mot de passe</label>
                 <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Password is required</div>
@@ -215,7 +225,7 @@
                 </div>
             </div>
             <div class="form-group col">
-                <label>Confirm Password</label>
+                <label>Confirmer Mot de passe</label>
                 <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
                 <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
                     <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
@@ -243,7 +253,7 @@
             "
             (click)="registerUser()"
           >
-            creer un compte
+            créer un compte
           </button>
           <!--
           <pre><code>

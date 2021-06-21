@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Contact } from './models/contact.model';
-import { Maison } from './models/maison.model';
 import { Reservation } from './models/reservation.model';
 import { User } from './models/user.model';
 const optionRequete = {
@@ -50,6 +49,9 @@ export class UserService {
       `${environment.baseURL}/reservations/reserve`,
       reservation
     ) as Observable<any>;
+  }
+  public updateReservation(id,reservation:Reservation): Observable<any> {
+    return this.http.put( `${environment.baseURL}/reservations/updateRes/${id}`,reservation) as Observable<any>;
   }
   GetReservations() {
     return this.http.get(`${environment.baseURL}/reservations`) as Observable<any>;

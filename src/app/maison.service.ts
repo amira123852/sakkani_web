@@ -51,6 +51,13 @@ export class MaisonService {
       `${environment.baseURL}/maisons/${id}`
     ) as Observable<any>;
   }
+
+  getMaisonByuserId(id):Observable<any> {
+    return this.http.get(
+      `${environment.baseURL}/maisons/annonceur/${id}`
+    ) as Observable<any>;
+  }
+
   addMaison(maison: Maison, file: File): Observable<any> {
     const formData = new FormData();
     formData.append('type_immobilier', maison.type_immobilier);

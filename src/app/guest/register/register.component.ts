@@ -32,6 +32,8 @@ export class RegisterComponent implements OnInit,OnDestroy {
 
       this.registerForm = this.formBuilder.group({
       nom: ['', Validators.required],
+     sexe: ['', Validators.required],
+
       role: ['', Validators.required],
 
       email: ['', Validators.required],
@@ -66,6 +68,8 @@ onReset() {
 
 
   get nom() { return this.registerForm.get('nom'); }
+  get sexe() { return this.registerForm.get('sexe'); }
+
   get role() { return this.registerForm.get('role'); }
 
   get  email() { return this.registerForm.get('email'); }

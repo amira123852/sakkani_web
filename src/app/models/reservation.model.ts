@@ -7,5 +7,4 @@ export class Reservation {
   house: string;
   confirmation?: boolean;
 
-
 }

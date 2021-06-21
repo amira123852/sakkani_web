@@ -20,6 +20,15 @@ reservations :any [] ;
         console.log(this.reservations);
       });
     }
+    // confirmRes(id:any, i:any) {
+    //     console.log(id);
+    //     if(window.confirm('Do you want to delete house?'))
+    //    {
+    //       this.userService.updateReservation(id).subscribe((res) => {
+    //         this.reservations.splice(i, 1);
+    //       })
+    //     }
+    //   }
   }
 
 

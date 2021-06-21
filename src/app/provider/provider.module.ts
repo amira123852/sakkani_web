@@ -14,6 +14,9 @@ import { ListAnnonceComponent } from './list-annonce/list-annonce.component';
 import { InfoProviderComponent } from './info-provider/info-provider.component';
 import { UserService } from '../user.service';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
+import { ListConfirmComponent } from './list-confirm/list-confirm.component';
+import { OrderModule } from 'ngx-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -27,7 +30,8 @@ import { EditProfilComponent } from './edit-profil/edit-profil.component';
     ProviderSidebarComponent,
     ListAnnonceComponent,
     InfoProviderComponent,
-    EditProfilComponent
+    EditProfilComponent,
+    ListConfirmComponent
 
   ],
   imports: [
@@ -36,7 +40,10 @@ import { EditProfilComponent } from './edit-profil/edit-profil.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    OrderModule,
+    NgxPaginationModule,
+
   ],
   providers:[UserService]
 })
