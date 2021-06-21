@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
+import { MaisonService } from 'src/app/maison.service';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -13,12 +14,12 @@ export class ListAnnonceComponent implements OnInit {
   maisons:any = [];
 
   constructor(     private router: Router,
-    private autheService: AuthenticationService, private userService: UserService) { }
+    private autheService: AuthenticationService, private maisonService: MaisonService) { }
 
 
   ngOnInit():void
 {
-    this. userService.GetHouses().subscribe(
+    this. maisonService.GetHouses().subscribe(
       data =>{
         this.maisons = data.payload;
         console.log(this.maisons);
@@ -37,7 +38,7 @@ export class ListAnnonceComponent implements OnInit {
   deleteMa(id:any, i:any) {
     console.log(id);
     if(window.confirm('tu veux supprimer cette annonce?')) {
-      this.userService.deleteMaison(id).subscribe((res) => {
+      this.maisonService.deleteMaison(id).subscribe((res) => {
         this.maisons.splice(i, 1);
       })
     }

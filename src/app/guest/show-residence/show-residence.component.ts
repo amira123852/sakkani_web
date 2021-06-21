@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
+import { MaisonService } from 'src/app/maison.service';
 
 import { UserService } from 'src/app/user.service';
 
@@ -13,7 +14,7 @@ export class ShowResidenceComponent implements OnInit {
   maisons:any = [];
   type_immobilier:any ;
   constructor(     private router: Router,
-    private autheService: AuthenticationService, private userService: UserService) { }
+    private autheService: AuthenticationService, private userService: MaisonService) { }
 
 
   ngOnInit():void

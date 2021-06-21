@@ -1,5 +1,5 @@
 <!--Nav-->
-  <pre><code>
+<pre><code>
 <!-- {{
   currentUser$ | async | json
 }} -->
@@ -7,7 +7,17 @@
 
 <nav id="header" class="top-0 h-26 max-h-full z-30 w-full py-1 bg-white-800">
   <div
-    class="container flex flex-wrap items-center justify-between w-full px-1 py-1 mx-auto mt-0"
+    class="
+      container
+      flex flex-wrap
+      items-center
+      justify-between
+      w-full
+      px-1
+      py-1
+      mx-auto
+      mt-0
+    "
   >
     <label for="menu-toggle" class="block cursor-pointer md:hidden">
       <svg
@@ -24,95 +34,156 @@
     <input class="hidden" type="checkbox" id="menu-toggle" />
 
     <div
-      class=" order-3 hidden w-full md:flex md:items-center md:w-auto md:order-2"
+      class="order-3 hidden w-full md:flex md:items-center md:w-auto md:order-2"
       id="menu"
     >
       <nav>
         <ul
-          class="items-center justify-between pt-4 text-base text-black md:flex md:pt-0"
+          class="
+            items-center
+            justify-between
+            pt-4
+            text-base text-black
+            md:flex
+            md:pt-0
+          "
         >
+          <!-- menu-item Etudiant-->
 
-        <!-- menu-item Etudiant-->
-        <li *ngIf="(currentUser$ | async)?.role ==='STUDENT'">
-          <a
-          class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
-          [routerLink]="['/home/login']"
-            routerLinkActive="router-link-active"
-          >
-          <!-- <i class="large material-icons icon-blue">note_add</i> -->
-          <mat-icon class="black-icon">account_circle</mat-icon>
-          Etudiant
-          </a>
-    <!-- fin menu-item Etudiant-->
-
-  </li>
-  <!-- menu-item Login-->
-           <li *ngIf="!connected">
+          <!-- fin menu-item Etudiant-->
+          <!-- *ngIf="(currentUser$ | async)?.role ==='STUDENT'" -->
+          <p><mat-icon>person</mat-icon>{{(currentUser$ | async)?.nom}}</p>
+          <li *ngIf="(currentUser$ | async)?.role ==='STUDENT'">
+            <button mat-button [matMenuTriggerFor]="menu">
+              <mat-icon class="black-icon">account_circle</mat-icon> Etudiant
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Mon Profile</button>
+              <button mat-menu-item>Se déconnecter</button>
+            </mat-menu>
+          </li>
+          <!-- menu-item Login-->
+          <li *ngIf="!connected">
             <a
-            class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
-            [routerLink]="['/home/login']"
+              class="
+                inline-block
+                px-4
+                py-2
+                no-underline
+                rounded-md
+                hover:text-black
+                hover:underline
+                hover:bg-gray-200
+              "
+              [routerLink]="['/home/login']"
               routerLinkActive="router-link-active"
             >
-            Se connecter
+              Se connecter
             </a>
           </li>
 
-           <!-- fin menu-item login-->
+          <!-- fin menu-item login-->
 
-
-  <!-- menu-item Dashboard-->
-          <li *ngIf="(currentUser$ | async)?.role ==='ADMIN'">
+          <!-- menu-item Dashboard-->
+          <li *ngIf="(currentUser$ | async)?.role === 'ADMIN'">
             <a
-              class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
+              class="
+                inline-block
+                px-4
+                py-2
+                no-underline
+                rounded-md
+                hover:text-black
+                hover:underline
+                hover:bg-gray-200
+              "
               [routerLink]="['/admin']"
               routerLinkActive="router-link-active"
             >
-           Tableau De Bord
+              Tableau De Bord
             </a>
           </li>
 
-           <!-- fin menu-item Dashboard-->
+          <!-- fin menu-item Dashboard-->
 
-            <!-- menu-item Announceur-->
-          <li *ngIf="(currentUser$ | async)?.role ==='PROVIDER'">
+          <!-- menu-item Announceur-->
+          <li *ngIf="(currentUser$ | async)?.role === 'PROVIDER'">
             <a
-            class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
-            [routerLink]="['/home/profil']"
+              class="
+                inline-block
+                px-4
+                py-2
+                no-underline
+                rounded-md
+                hover:text-black
+                hover:underline
+                hover:bg-gray-200
+              "
+              [routerLink]="['/home/profil']"
               routerLinkActive="router-link-active"
             >
-            <mat-icon class="black-icon">account_circle</mat-icon>
-            Mon profil
+              <mat-icon class="black-icon">account_circle</mat-icon>
+              Mon profil
             </a>
           </li>
-           <!-- fin menu-item Annonceur-->
-   <!-- menu-item Logout-->
-   <li *ngIf="connected" (click)="logout()">
-    <a
-      class="inline-block px-4 py-2 no-underline rounded-md hover:text-black hover:underline hover:bg-gray-200"
-      [routerLink]="['/home/login']"
-      routerLinkActive="router-link-active"
-    >
-     Déconnexion
-    </a>
-  </li>
+          <!-- fin menu-item Annonceur-->
+          <!-- menu-item Logout-->
+          <li *ngIf="connected" (click)="logout()">
+            <a
+              class="
+                inline-block
+                px-4
+                py-2
+                no-underline
+                rounded-md
+                hover:text-black
+                hover:underline
+                hover:bg-gray-200
+              "
+              [routerLink]="['/home/login']"
+              routerLinkActive="router-link-active"
+            >
+              Déconnexion
+            </a>
+          </li>
 
-<!-- menu-item logout-->
+          <!-- menu-item logout-->
         </ul>
       </nav>
     </div>
 
     <div class="order-1 md:order-1">
       <a
-        class="flex items-center text-xl font-bold tracking-wide text-gray-800 no-underline hover:no-underline"
+        class="
+          flex
+          items-center
+          text-xl
+          font-bold
+          tracking-wide
+          text-gray-800
+          no-underline
+          hover:no-underline
+        "
         href="#"
       >
-        <img class="p-2
-        h-20 w-20 bg-white flex items-center justify-center text-gray-700 font-semibold shadow-md
-        " src="assets/images/ekrili.png" />
+        <img
+          class="
+            p-2
+            h-20
+            w-20
+            bg-white
+            flex
+            items-center
+            justify-center
+            text-gray-700
+            font-semibold
+            shadow-md
+          "
+          src="assets/images/ekrili.png"
+        />
 
         <span class="text-lg text-opacity-75"></span>
       </a>
     </div>
-
   </div>
 </nav>

@@ -33,7 +33,7 @@ export class AddComponent implements OnInit {
   });
   authenticationService: any;
   constructor(
-    private service: UserService,
+    private service: MaisonService,
     private router: Router,
     private authentication:AuthenticationService) {}
 

@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (value) => {
           if (value?.token) {
-            this.snackBar.open('Logged in', 'Close');
+            this.snackBar.open('tu sera connecté', 'Close');
           } else {
             this.snackBar.open('Authentication Failed', 'Close');
           }

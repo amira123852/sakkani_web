@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MaisonService } from 'src/app/maison.service';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class HomePageComponent implements OnInit {
   maisons:any = [];
   router: Router;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: MaisonService) { }
 
 
   ngOnInit():void

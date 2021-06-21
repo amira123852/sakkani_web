@@ -25,13 +25,32 @@ export class MaisonService {
       'Something bad happened; please try again later.');
   }
 
-  getMaisonById(id: string): Observable<any> {
-    const url = `${environment.baseURL}/${id}`;
-    return this.http.get<Maison>(url).pipe(
-      catchError(this.handleError)
-    );
+
+  public postMaison(maison: Maison): Observable<any> {
+    return this.http.post(
+      `${environment.baseURL}/maisons/add`,
+      maison
+    ) as Observable<any>;
   }
 
+  deleteMaison(id) {
+    return this.http.delete(
+      `${environment.baseURL}/maisons/delete/${id}`
+    ) as Observable<any>;
+  }
+
+  updateMaison(id, data): Observable<any> {
+    //  let _maison={...data};
+    return this.http.put(`${environment.baseURL}/maisons/update/${id}`,data) as Observable<any>;
+  }
+  GetHouses() {
+    return this.http.get(`${environment.baseURL}/maisons`) as Observable<any>;
+  }
+  getMaisonById(id) {
+    return this.http.get(
+      `${environment.baseURL}/maisons/${id}`
+    ) as Observable<any>;
+  }
   addMaison(maison: Maison, file: File): Observable<any> {
     const formData = new FormData();
     formData.append('type_immobilier', maison.type_immobilier);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MaisonService } from 'src/app/maison.service';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class EditComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService,
+    private userService: MaisonService,
     public fb: FormBuilder,
     private router: Router
   ) {
@@ -24,7 +25,7 @@ export class EditComponent implements OnInit {
       this.editForm = this.fb.group({
         type_immobilier: [data.payload.type_immobilier, [Validators.required]],
         description: [data.payload.description, [Validators.required]],
-        Photo: [data.payload.Photo, [Validators.required]],
+        Photo: [data.payload.Photo],
         prix: [data.payload.prix, [Validators.required]]
       });
     });
@@ -39,7 +40,7 @@ export class EditComponent implements OnInit {
     this.editForm = this.fb.group({
       type_immobilier: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      Photo: ['', [Validators.required]],
+      Photo: [''],
       prix: ['', [Validators.required]]
     });
   }

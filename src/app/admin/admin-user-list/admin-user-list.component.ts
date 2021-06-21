@@ -32,15 +32,13 @@ p:number = 1;
     .afterClosed()
       .subscribe(res =>{
         if(res){
-        this.adminService.deleteUser(id); {
-
+        this.adminService.deleteUser(id).subscribe((res)=>{
           this.notificationservice.success('! suppression terminé');
           this.users.splice(i, 1);
-
-        }
-        }
-      });
-    }
+        })
+      }
+    });
+  }
 
 
   Search(){

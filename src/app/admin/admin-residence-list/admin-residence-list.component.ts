@@ -8,7 +8,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./admin-residence-list.component.css']
 })
 export class AdminResidenceListComponent implements OnInit {
-  constructor( private userService : UserService) { }
+  constructor( private userService : MaisonService) { }
   maisons :any = [];
   maison :any = [];
 

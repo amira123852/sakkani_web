@@ -86,7 +86,9 @@ onReset() {
         this.router.navigate(['/home/login']);
       },
       error:(error)=>{
-        this.snackBar.open(error,'X');
+        this.snackBar.open("Vous n'avez pas réussi à vous inscrire", 'Close');
+        this.router.navigate(['/home/register']);
+
       },
       complete:console.log
 

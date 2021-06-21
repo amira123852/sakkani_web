@@ -6,10 +6,11 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material/material.module';
 import { DescriptionResidenceComponent } from '../guest/description-residence/description-residence.component';
+import { ProfilConsumerComponent } from './profil-consumer/profil-consumer.component';
 
 
 @NgModule({
-  declarations: [DescriptionResidenceComponent],
+  declarations: [DescriptionResidenceComponent, ProfilConsumerComponent],
   imports: [
     CommonModule,
     RouterModule,

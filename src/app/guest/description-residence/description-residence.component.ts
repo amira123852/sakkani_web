@@ -19,6 +19,7 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { User } from 'src/app/models/user.model';
+import { MaisonService } from 'src/app/maison.service';
 
 @Component({
   selector: 'app-description-residence',
@@ -40,6 +41,8 @@ export class DescriptionResidenceComponent implements OnInit {
 
     private route: ActivatedRoute,
     private userService: UserService,
+    private uService: MaisonService,
+
     private router: Router,
     private authentication: AuthenticationService,
     private formBuilder: FormBuilder
@@ -48,7 +51,7 @@ export class DescriptionResidenceComponent implements OnInit {
   }
 
   gettMaisonById(id) {
-    this.userService.getMaisonById(id).subscribe((data) => {
+    this.uService.getMaisonById(id).subscribe((data) => {
       this.maison = data.payload;
       console.log(this.maison);
     });

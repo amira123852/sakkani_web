@@ -1,55 +1,132 @@
-<div class="row justify-content-center">
-  <div class="col-md-4 register-employee">
-    <!-- form card register -->
-        <h3 class="mb-0">Edit Employee</h3>
+<div class="container">
+  <div class="row">
+    <h3>Edit Employee</h3>
+    <div class="col-sm-6">
+      <form [formGroup]="editForm">
+        <div class="form-group">
+          <label for="inputName">type immobilier</label>
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="maison.type_immobilier"
+            formControlName="type_immobilier"
+          />
+        </div>
 
-        <form [formGroup]="editForm" >
+        <div class="form-group">
+          <label for="description">description</label>
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="maison.description"
+            formControlName="description"
+          />
+        </div>
 
-          <div class="form-group">
-            <label for="inputName">type_immobilier</label>
-            <input class="form-control" type="text" [(ngModel)]="maison.type_immobilier" formControlName="type_immobilier">
-          </div>
-          <div class="form-group">
-            <label for="inputEmail3">description</label>
-            <input class="form-control" type="text" [(ngModel)]="maison.description" formControlName="description">
-          </div>
-          <div class="form-group">
-            <label for="inputName">Photo</label>
-            <img class="rounded-t-xl  w-full h-36 object-cover" [src]="maison.Photo">
-            <div class="-mx-3 md:flex mb-6">
-              <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class=" block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2 ">
-                  Choisir image
-                </label>
-                <div
-                  class="
-                    border-2 border-gray-100 focus:outline-none text-white font-bold
-                    tracking-wider block w-full py-4 px-4 rounded-lg max-w-2xl "
-                >
-                <label class="w-64 flex flex-col items-center px-4 py-6 bg-indigo-300 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white">
-
-                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-              </svg>
-              <span class="mt-2 text-base leading-normal">Select image</span>
-
-                <input type='file' class="hidden" id="upload" accept="image/*" multiple type="file" (change)="uploadFile($event)" formControlName="Photo" />
+        <div class="form-group">
+          <label for="inputName">Photo</label>
+          <img
+            class="rounded-t-xl w-full h-36 object-cover"
+            [src]="maison.Photo"
+          />
+          <div class="-mx-3 md:flex mb-6">
+            <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="
+                  block
+                  uppercase
+                  tracking-wide
+                  text-grey-darker text-xs
+                  font-bold
+                  mb-2
+                "
+              >
+                Choisir image
               </label>
+              <div
+                class="
+                  border-2 border-gray-100
+                  focus:outline-none
+                  text-white
+                  font-bold
+                  tracking-wider
+                  block
+                  w-full
+                  py-4
+                  px-4
+                  rounded-lg
+                  max-w-2xl
+                "
+              >
+                <label
+                  class="
+                    w-64
+                    flex flex-col
+                    items-center
+                    px-4
+                    py-6
+                    bg-indigo-300
+                    text-blue
+                    rounded-lg
+                    shadow-lg
+                    tracking-wide
+                    uppercase
+                    border border-blue
+                    cursor-pointer
+                    hover:bg-blue
+                    hover:text-white
+                  "
+                >
+                  <svg
+                    class="w-8 h-8"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
+                    />
+                  </svg>
+                  <span class="mt-2 text-base leading-normal"
+                    >Select image</span
+                  >
 
-              </div>
-
+                  <input
+                    type="file"
+                    class="hidden"
+                    id="upload"
+                    accept="image/*"
+                    multiple
+                    type="file"
+                    (change)="uploadFile($event)"
+                    />
+                    <!-- formControlName="Photo" -->
+                </label>
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="inputEmail3">prix</label>
-            <input class="form-control" type="text" [(ngModel)]="maison.prix" formControlName="prix">
-          </div>
+        </div>
 
+        <div class="form-group">
+          <label for="prix">prix</label>
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="maison.prix"
+            formControlName="prix"
+          />
+        </div>
 
-          <div class="form-group">
-            <button class="btn btn-success btn-lg btn-block" type="submit" (click)="update()">Update</button>
-          </div>
-        </form>
-      </div>
-    </div><!-- form  -->
+        <div class="form-group">
+          <button
+            class="btn btn-success btn-lg btn-block"
+            type="submit"
+            (click)="update()"
+          >
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
