@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h3>Edit Employee</h3>
+
     <div class="col-sm-6">
       <form [formGroup]="editForm">
         <div class="form-group">
@@ -8,10 +8,10 @@
           <input
             class="form-control"
             type="text"
-            [(ngModel)]="maison.type_immobilier"
             formControlName="type_immobilier"
           />
         </div>
+        <!--    [(ngModel)]="maison.type_immobilier"-->
 
         <div class="form-group">
           <label for="description">description</label>
@@ -100,6 +100,7 @@
                     type="file"
                     (change)="uploadFile($event)"
                     />
+                    <!-- [(ngModel)]="maison.Photo" -->
                     <!-- formControlName="Photo" -->
                 </label>
               </div>

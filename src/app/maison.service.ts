@@ -40,7 +40,8 @@ export class MaisonService {
   }
 
   updateMaison(id, data): Observable<any> {
-    //  let _maison={...data};
+    //let _maison={...data};
+
     return this.http.put(`${environment.baseURL}/maisons/update/${id}`,data) as Observable<any>;
   }
   GetHouses() {

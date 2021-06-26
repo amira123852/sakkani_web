@@ -54,12 +54,19 @@ export class EditComponent implements OnInit {
   }
 
   update() {
+    var formData: any = new FormData();
+
+    formData.append('type_immobilier',this.editForm.get('type_immobilier').value);
+    formData.append('description', this.editForm.get('description').value);
+    formData.append('Photo', this.editForm.get('Photo').value);
+    formData.append('prix', this.editForm.get('prix').value);
+
     console.log(this.editForm.value);
     var id = this.route.snapshot.paramMap.get('id');
     if (window.confirm('Are you sure you want to update?')) {
-      this.userService.updateMaison(id, this.editForm.value).subscribe((res) => {
-        // this.router.navigate(["/admin/admin-sakkani/list-user"]);
-        alert("yesssssssssss")
+      this.userService.updateMaison(id,formData).subscribe((res) => {
+        this.router.navigate(["/home/profil"]);
+        // alert("yesssssssssss")
       });
     }
     // const formValues = this.editForm.value;

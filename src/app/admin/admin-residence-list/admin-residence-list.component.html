@@ -32,7 +32,7 @@
         <button mat-raised-button >
           <mat-icon>add</mat-icon>Ajouter
         </button>
-        <table  class="  mat-elevation-z8 ">
+        <table  class="  mat-elevation-z8 confirm">
           <thead>
             <tr>
               <th class="sticky top-0 px-6 py-3  text-center text-black bg-gray-300">Image</th>
@@ -44,7 +44,7 @@
               <th class="sticky top-0 px-6 py-3  text-center text-black bg-gray-300">Action</th>
             </tr>
           </thead>
-          <tbody class="divide-y bg-green-100">
+          <tbody class="divide-y bg-white">
             <tr *ngFor="let data of maisons | orderBy : key:reverse | paginate: {itemsPerPage:5,currentPage:p}; ">
               <td class="px-6 py-4 text-center">
                   <img class="rounded-t-xl  w-12 h-12 object-cover" [src]="data.Photo">

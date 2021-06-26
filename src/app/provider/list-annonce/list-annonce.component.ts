@@ -4,12 +4,11 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { MaisonService } from 'src/app/maison.service';
 
-
 @Component({
   selector: 'app-list-annonce',
   templateUrl: './list-annonce.component.html',
 
-  styleUrls: ['./list-annonce.component.css'],
+  styleUrls: ['./list-annonce.component.css']
 })
 export class ListAnnonceComponent implements OnInit {
   maisons: any = [];
@@ -53,10 +52,3 @@ export class ListAnnonceComponent implements OnInit {
     alert(id);
   }
 }
-
-
-/*
-(data) => {
-      this.maisonByUser = data.payload;
-    }
-*/

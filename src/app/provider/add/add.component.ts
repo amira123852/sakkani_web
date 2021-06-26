@@ -66,7 +66,7 @@ export class AddComponent implements OnInit {
     this.service.postMaison(formData).subscribe(
       (response) =>
       {
-        this.router.navigate(['/home/show-residences']);
+        this.router.navigate(['/home/profil']);
       },
       (error) => console.log(error)
     );

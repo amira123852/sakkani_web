@@ -86,11 +86,15 @@ onReset() {
   public registerUser() {
     this.subscription=this.userService.register(this.registerForm.value).subscribe({
       next: (response) => {
-        this.snackBar.open(response.message,'X');
-        this.router.navigate(['/home/login']);
+        if(response.status==="failed"){
+          this.snackBar.open(`${response.message}\n${JSON.stringify(response.payload)}`,'X');
+        }else{
+          this.snackBar.open(`${response.message}`,'X');
+          this.router.navigate(['/home/login']);
+        }
       },
       error:(error)=>{
-        this.snackBar.open("Vous n'avez pas réussi à vous inscrire", 'Close');
+        this.snackBar.open(`Vous n'avez pas réussi à vous inscrire\n ${error}`, 'Close');
         this.router.navigate(['/home/register']);
 
       },

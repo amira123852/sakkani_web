@@ -10,13 +10,13 @@ import { ProviderProfilComponent } from './provider-profil/provider-profil.compo
 import { EditComponent } from './edit/edit.component';
 import { ListReservationComponent } from './list-reservation/list-reservation.component';
 import { ProviderSidebarComponent } from './provider-sidebar/provider-sidebar.component';
-import { ListAnnonceComponent } from './list-annonce/list-annonce.component';
 import { InfoProviderComponent } from './info-provider/info-provider.component';
 import { UserService } from '../user.service';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { ListConfirmComponent } from './list-confirm/list-confirm.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ListAnnonceComponent } from './list-annonce/list-annonce.component';
 
 
 @NgModule({
@@ -28,12 +28,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ProviderSidebarComponent,
     ListAnnonceComponent,
     ProviderSidebarComponent,
-    ListAnnonceComponent,
     InfoProviderComponent,
     EditProfilComponent,
     ListConfirmComponent
-
-  ],
+,ListAnnonceComponent  ],
   imports: [
     CommonModule,
     ProviderRoutingModule,

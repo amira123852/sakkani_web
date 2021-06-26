@@ -1,75 +1,63 @@
-
-<div class="flex flex-row h-6 py-32 px-52">
-
-
+<!-- This is an example component -->
+<div class="min-h-screen flex items-center  justify-center px-4">
 
 
+      <table  class="  mat-elevation-z8 confirm" >
 
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
 
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+        <!-- Position Column -->
+        <thead>
+          <tr>
+            <th class="sticky top-0 px-6 py-3 text-center  text-black font-bold bg-gray-200">N°</th>
 
-  <div class="container">
-    <form class="form-inline p-32  py-6 waves-light" mdbWavesEffect>
-      <div class="md-form mt-0">
+            <th class="sticky top-0 px-6 py-3 text-center
+             text-black font-bold bg-gray-200">Nom de logement</th>
+            <th class="sticky top-0 px-6 py-3 text-center  text-black font-bold bg-gray-200">prix</th>
+            <th class="sticky top-0 px-6 py-3 text-center  text-black font-bold bg-gray-200">client</th>
+          </tr>
+        </thead>
+          <tr   >
+            <td class=" px-6 py-4 text-center">1</td>
 
-        <input
-        class="form-control mr-sm-2" type="text" placeholder="type immobillier,ville...">
-      </div>
-    </form>
+            <td class=" px-6 py-4 text-center">residence amir</td>
+            <td class="px-6 py-4 text-center">500 DT</td>
 
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <td class="px-6 py-4 text-center">Ahmed Ben salah
+              <div class="pt-4">
+                <button class="bg-green-300 px-6  font-bold">détails</button>
+              </div>
+            </td>
 
-    <!-- image search box -->
+          </tr>
+          <tr   >
+            <td class=" px-6 py-4 text-center">2</td>
 
+            <td class=" px-6 py-4 text-center">residence el hani</td>
+            <td class="px-6 py-4 text-center">450DT</td>
+            <td class="px-6 py-4 text-center">ali brahmi
+              <div class="pt-4">
+                <button class="bg-green-300  px-6 font-bold">détails</button>
+              </div>
+            </td>
 
+          </tr>
+          <tr   >
+            <td class=" px-6 py-4 text-center">3</td>
 
+            <td class=" px-6 py-4 text-center">foyer brahem</td>
+            <td class="px-6 py-4 text-center">400 DT</td>
+            <td class="px-6 py-4 text-center">salma HAJ ALI
+              <div class="pt-4">
+                <button class="bg-green-300  px-6 font-bold">détails</button>
+              </div>
+            </td>
 
-    </div>
-
-    <div class="flex flex-col px-16 h-screen">
-      <div class="flex-grow overflow-auto">
-        <button mat-raised-button >
-          <mat-icon>add</mat-icon>Ajouter
-        </button>
-        <table  class="  mat-elevation-z8 ">
-          <thead>
-            <tr>
-              <th class="sticky top-0 px-6 py-3  text-center text-black bg-gray-300">Image</th>
-
-              <th class="sticky top-0 px-6 py-3 text-black   text-center bg-gray-300">type</th>
-              <th class="sticky top-0 px-6 py-3  text-center text-black bg-gray-300">Nom de logement</th>
-
-              <th class="sticky top-0 px-6 py-3  text-center text-black bg-gray-300">ville</th>
-              <th class="sticky top-0 px-6 py-3  text-center text-black bg-gray-300">Etudiant(e)</th>
-
-            </tr>
-          </thead>
-          <tbody class="divide-y bg-green-100">
-            <tr >
-              <td class="px-6 py-4 text-center">
-                  <img class="rounded-t-xl  w-12 h-12 object-cover" >
-                </td>
-              <td class="px-6 py-4 text-center"></td>
-              <td class="px-6 py-4 text-center"></td>
-
-              <!-- <td class="text-center">
-
-
-
-                  <button> <mat-icon class="red-icon" (click)="deleteMa(maison._id)">block</mat-icon>
-                </button>
-                <button
-                 class=" p-6 hover:opacity-100 font-bold  hover:text-red-900 "              [routerLink]="['/home/description', data._id]"
-              >
-                details
-                </button> -->
-            </tr>
+          </tr>
 
 
 
-
-
-          </tbody>
           <pagination-controls (pageChange)="p =$event"></pagination-controls>
 
 
@@ -78,10 +66,15 @@
 
 
 
-        </table>
-      </div>
-    </div>
+
+      </table>
 
 
-  </div>
-  </div>
+
+
+
+
+
+
+</div>
+

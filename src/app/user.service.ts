@@ -50,9 +50,15 @@ export class UserService {
       reservation
     ) as Observable<any>;
   }
-  public updateReservation(id,reservation:Reservation): Observable<any> {
-    return this.http.put( `${environment.baseURL}/reservations/updateRes/${id}`,reservation) as Observable<any>;
+  deleteReservation(id){
+    return this.http.delete(`${environment.baseURL}/delete/${id}`) as Observable<any>;;
   }
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+  // public updateReservation(id,data): Observable<any> {
+  //   return this.http.put( `${environment.baseURL}/reservations/update/${id}`,data) as Observable<any>;
+  // }
   GetReservations() {
     return this.http.get(`${environment.baseURL}/reservations`) as Observable<any>;
   }

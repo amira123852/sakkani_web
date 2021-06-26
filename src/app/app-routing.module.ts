@@ -24,6 +24,7 @@ import { EditComponent } from './provider/edit/edit.component';
 import { ListReservationComponent } from './provider/list-reservation/list-reservation.component';
 import { InfoProviderComponent } from './provider/info-provider/info-provider.component';
 import { EditProfilComponent } from './provider/edit-profil/edit-profil.component';
+import { ListConfirmComponent } from './provider/list-confirm/list-confirm.component';
 
 const routes: Routes = [
   {
@@ -59,10 +60,16 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
+        path: 'list-confirm',
+        component: ListConfirmComponent,
+        data: { title: 'listres' },
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'edit/:id',
         component: EditComponent,
         data: { title: 'edit' },
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
       {
         path: 'edit-profil/:id',
